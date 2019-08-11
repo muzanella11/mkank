@@ -1,0 +1,62 @@
+/******************************************
+  Some tips for creating layouts :
+  - Add `l` prefix before the name of layouts
+  - Or Just copy paste this structure of styling code into your new layouts styling file
+  - Dont forget to register your layouts into `_layouts.scss`
+******************************************/
+/** This Place For Layouts Startup **/
+.#{$namespace} {
+  & .l-startup {
+    position: relative;
+    min-height: 100vh;
+    background: white;
+
+    & .startup {
+      &__toolbar {
+        & .toolbar {
+          &__title {
+            position: relative;
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+
+      &__header {
+        background: white;
+        min-height: 230px;
+        text-align: center;
+
+        & .greetings {
+          line-height: 24px;
+        }
+
+        & .brand {
+          margin-top: 32px;
+          margin-bottom: 64px;
+        }
+      }
+
+      &__content {
+        background: $color-primary;
+        min-height: 350px;
+
+        & .content {
+          &-wrapper {
+            position: relative;
+            width: 100%;
+            padding: 0 24px;
+
+            & .c-card {
+              &-onboarding {
+                top: -48px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */
