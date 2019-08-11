@@ -90,4 +90,4 @@
 
 <style lang="scss" scoped src="./style.scss"></style>
 
-<script lang="ts" src="./script.js"></script>
+<script lang="js" src="./script.js"></script>

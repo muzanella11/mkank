@@ -1,0 +1,101 @@
+/******************************************
+  Some tips for creating blocks / modules :
+  - Add `c` prefix before the name of block or modules
+  - Or Just copy paste this structure of styling code into your new block or components styling file
+  - Dont forget to register your block or modules into `_modules.scss`
+******************************************/
+/** This Place For Block Card On Boarding **/
+.#{$namespace} {
+  & .c-card-onboarding {
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+
+    & .onboarding {
+      &-header {
+        margin-bottom: 8px;
+      }
+
+      &-step {
+        height: 48px;
+
+        & .step {
+          &-list {
+            position: absolute;
+            display: flex;
+            left: 35%;
+
+            @include clearfix;
+
+            & > li {
+              position: relative;
+              float: left;
+              width: 120px;
+              opacity: 0.2;
+
+              &.active {
+                opacity: 1;
+              }
+            }
+
+            &__wording {
+              position: absolute;
+              top: -7px;
+              left: 40px;
+            }
+
+            & .diamond {
+              width: 0;
+              height: 0;
+              border: 15px solid transparent;
+              border-bottom-color: $color-secondary;
+              position: relative;
+              top: -28px;
+
+              &::after {
+                content: "";
+                position: absolute;
+                left: -15px;
+                top: 15px;
+                width: 0;
+                height: 0;
+                border: 15px solid transparent;
+                border-top-color: $color-secondary;
+              }
+
+              & .text {
+                position: relative;
+                left: -4px;
+                top: 2px;
+                z-index: 1;
+                font-size: 12px;
+                color: white;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+
+      &-action {
+        & .action {
+          &__separator {
+            margin: 8px 0;
+          }
+
+          &__button {
+            min-width: 150px;
+            min-height: 50px;
+          }
+        }
+      }
+    }
+
+    & .separator-lang {
+      margin-bottom: 48px;
+    }
+  }
+}
+
+/* ************************************ */
