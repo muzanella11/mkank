@@ -1,6 +1,6 @@
 <template>
   <div
-    class="l-auth auth-signin"
+    class="l-auth auth-signup"
     :class="[roleActive !== 'buyer' ? 'auth--seller' : 'auth--buyer' ]"
   >
     <v-app-bar
@@ -27,7 +27,8 @@
 
     <section class="auth__content">
       <div class="content-wrapper">
-        <enem-card-signin />
+        <enem-card-signup v-if="stepActive === 1" />
+        <enem-card-verification v-if="stepActive === 2" />
       </div>
     </section>
   </div>

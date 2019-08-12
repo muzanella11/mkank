@@ -11,12 +11,12 @@ export default {
     {
       type: 'btn-primary',
       url: 'javascript:;',
-      title: 'English'
+      title: 'Buyer'
     },
     {
       type: 'btn-secondary',
       url: 'javascript:;',
-      title: 'Arabic'
+      title: 'Seller'
     }
   ]
 }
