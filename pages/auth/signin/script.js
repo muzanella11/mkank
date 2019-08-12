@@ -1,10 +1,10 @@
-import EnemCardOnBoarding from '~/components/cards/cardonboarding/template.vue'
+import EnemCardSignin from '~/components/cards/cardsignin/template.vue'
 
 export default {
   layout: 'blank/template',
 
   components: {
-    EnemCardOnBoarding
+    EnemCardSignin
   },
 
   computed: {

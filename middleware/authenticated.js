@@ -3,7 +3,8 @@ import * as Storage from '~/utils/storage'
 
 export const EXCEPT_PAGE = [
   'startup',
-  'auth-signin'
+  'auth-signin',
+  'auth-signup'
 ]
 
 export default function ({ route, store, redirect }) {
