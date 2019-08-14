@@ -23,10 +23,7 @@
         {{ entries.greetings }}
       </div>
       <div class="brand">
-        <img
-          src="~/assets/images/brand.svg"
-          alt="mkank-logo"
-        >
+        <brand-logo />
       </div>
     </section>
     <section class="startup__content">
