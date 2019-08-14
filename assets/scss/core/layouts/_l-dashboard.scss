@@ -1,0 +1,104 @@
+/******************************************
+  Some tips for creating layouts :
+  - Add `l` prefix before the name of layouts
+  - Or Just copy paste this structure of styling code into your new layouts styling file
+  - Dont forget to register your layouts into `_layouts.scss`
+******************************************/
+/** This Place For Layouts Dashboard **/
+.#{$namespace} {
+  & .l-dashboard {
+    position: relative;
+    min-height: 100%;
+    background: white;
+    padding-bottom: 100px;
+
+    & .dashboard {
+      &__section {
+        position: relative;
+
+        & .section {
+          &__header {
+            position: relative;
+          }
+
+          &__content {
+            position: relative;
+
+            & .content {
+              &-wrapper {
+                position: relative;
+              }
+
+              &-header {
+                position: relative;
+                padding: 8px 24px;
+                padding-bottom: 16px;
+                background: white;
+              }
+
+              &-list-property-agent {
+                margin: 0;
+                padding: 0;
+
+                & .list-property-agent {
+                  &__title {
+                    background: $color-blue-sky;
+                    padding: 8px 24px;
+                    margin-bottom: 16px;
+
+                    & .title {
+                      &-content {
+                        & .content {
+                          &__left {
+                            & .avatar {
+                              width: 35px;
+                              height: 35px;
+                              border-radius: 50%;
+                            }
+
+                            & .account-name {
+                              position: relative;
+                              padding-left: 8px;
+                              top: -14px;
+                              font-weight: bold;
+                            }
+                          }
+
+                          &__right {
+                            padding-left: 16px;
+                            text-align: right;
+
+                            & .logo {
+                              max-width: 73%;
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  &__property-list {
+                    margin: 0;
+                    padding: 0;
+
+                    & > li {
+                      margin-bottom: 24px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.section {
+          &-top-picks {
+            //
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */

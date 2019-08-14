@@ -1,92 +1,88 @@
 <template>
-  <v-layout
-    column
-    justify-center
-    align-center
-  >
-    <v-flex
-      xs12
-      sm8
-      md6
-    >
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
+  <div class="l-dashboard">
+    <enem-search />
+
+    <!-- Begin Top Picks -->
+    <section class="dashboard__section section-top-picks">
+      <div class="section__content">
+        <div class="content-wrapper">
+          <div class="content-header">
+            Top picks
           </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-flex>
-  </v-layout>
+
+          <!-- Begin List Property Agent -->
+          <ul class="content-list-property-agent">
+            <li>
+              <div class="list-property-agent__title">
+                <v-layout
+                  class="title-content"
+                  wrap
+                >
+                  <v-flex
+                    class="content__left"
+                    xs6
+                    sm6
+                  >
+                    <img
+                      class="avatar"
+                      src="https://randomuser.me/api/portraits/men/33.jpg"
+                      alt="name"
+                    >
+                    <label class="account-name">
+                      user ssss
+                    </label>
+                  </v-flex>
+
+                  <v-flex
+                    class="content__right"
+                    xs6
+                    sm6
+                  >
+                    <img
+                      class="logo"
+                      src="https://cdn.zeplin.io/5d4dadc08d5c26520b4806e2/assets/AB4CC257-F7E3-4E71-8B1A-6025FD4AA4B5.png"
+                      alt="name"
+                    >
+                  </v-flex>
+                </v-layout>
+              </div>
+
+              <ul class="list-property-agent__property-list">
+                <li
+                  v-for="(item, index) in 10"
+                  :key="index"
+                >
+                  <enem-card-property />
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <!-- End List Property Agent -->
+        </div>
+      </div>
+    </section>
+    <!-- End Top Picks -->
+
+    <!-- Begin Filter -->
+    <enem-filter-sticky />
+    <!-- End Filter -->
+  </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import EnemSearch from '~/components/search/template.vue'
+import EnemCardProperty from '~/components/cards/cardproperty/template.vue'
+import EnemFilterSticky from '~/components/filtersticky/template.vue'
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
+    EnemSearch,
+    EnemCardProperty,
+    EnemFilterSticky
+  },
+
+  data () {
+    return {}
   }
 }
 </script>
