@@ -1,0 +1,138 @@
+/******************************************
+  Some tips for creating blocks / modules :
+  - Add `c` prefix before the name of block or modules
+  - Or Just copy paste this structure of styling code into your new block or components styling file
+  - Dont forget to register your block or modules into `_modules.scss`
+******************************************/
+/** This Place For Block Overlay **/
+.#{$namespace} {
+  & .c-overlay {
+    &.overlay {
+      &--legend {
+        & .legend {
+          position: relative;
+          width: 280px;
+          background: white;
+          padding: 16px;
+          color: black;
+          border-radius: 4px;
+
+          &__header {
+            position: relative;
+            border-bottom: 1px solid #EEE;
+
+            & .title {
+              position: relative;
+              color: $color-primary;
+              padding-right: 32px;
+              padding-bottom: 8px;
+              text-align: center;
+              font-size: 16px !important;
+            }
+          }
+
+          &__content {
+            position: relative;
+            padding: 16px 8px;
+
+            & .content {
+              &-list {
+                &__legend {
+                  position: relative;
+                  width: 100%;
+                  margin: 0;
+                  padding: 0;
+
+                  @include clearfix;
+
+                  & > li {
+                    float: left;
+                    width: 50%;
+                    max-height: 30px;
+                    overflow: hidden;
+
+                    &::before {
+                      content: "";
+                      width: 16px;
+                      height: 16px;
+                      background: #EEE;
+                      border-radius: 50%;
+                      display: block;
+                      float: left;
+                      margin-right: 16px;
+                    }
+
+                    &.item--yellow {
+                      &::before {
+                        background: #FCF569;
+                      }
+                    }
+
+                    &.item--blue {
+                      &::before {
+                        background: #6991FC;
+                      }
+                    }
+
+                    &.item--green {
+                      &::before {
+                        background: #05E64D;
+                      }
+                    }
+
+                    &.item--red {
+                      &::before {
+                        background: #FD7566;
+                      }
+                    }
+
+                    &.item--pink {
+                      &::before {
+                        background: #E661AC;
+                      }
+                    }
+
+                    &.item--purple {
+                      &::before {
+                        background: #8D67FC;
+                      }
+                    }
+
+                    &.item--orange {
+                      &::before {
+                        background: #F90;
+                      }
+                    }
+
+                    & .title {
+                      position: relative;
+                      top: -8px;
+                      font-size: 12px !important;
+                      font-weight: normal;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & .action {
+      &-button {
+        &__close {
+          position: absolute;
+          right: 0;
+          top: 3px;
+
+          & .v-icon {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */
