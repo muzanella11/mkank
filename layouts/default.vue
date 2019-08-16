@@ -33,6 +33,11 @@
       <nuxt />
     </v-content>
 
+    <enem-overlay-legend
+      :value="showLegend"
+      @input="setShowLegend"
+    />
+
     <v-bottom-navigation
       v-model="bottomNav"
       fixed
@@ -52,11 +57,15 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex'
+import * as EXPLORE from '~/store/modules/explore/types'
 import BrandLogo from '~/components/BrandLogo.vue'
+import EnemOverlayLegend from '~/components/overlay/overlaylegend/template.vue'
 
 export default {
   components: {
-    BrandLogo
+    BrandLogo,
+    EnemOverlayLegend
   },
 
   data () {
@@ -81,6 +90,23 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
+    }
+  },
+
+  computed: {
+    ...mapState({
+      showLegend: state => state.explore.showLegend
+    })
+  },
+
+  methods: {
+    ...mapMutations({
+      setExploreState: EXPLORE.SET_STATE
+    }),
+
+    setShowLegend (val) {
+      console.info('ssss : ', val)
+      this.setExploreState({ accessor: 'showLegend', value: val })
     }
   }
 }

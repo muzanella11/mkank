@@ -7,7 +7,7 @@
       <v-flex
         v-ripple
         xs4
-        sm6
+        sm4
         class="list-button__item"
       >
         <v-icon>mdi-sort-ascending</v-icon>
@@ -19,7 +19,7 @@
       <v-flex
         v-ripple
         xs4
-        sm6
+        sm4
         class="list-button__item"
       >
         <v-icon>mdi-filter</v-icon>
@@ -31,8 +31,10 @@
       <v-flex
         v-ripple
         xs4
-        sm6
+        sm4
         class="list-button__item"
+        :class="[showLegend ? 'active' : '']"
+        @click="setShowLegend(!showLegend)"
       >
         <v-icon>mdi-help</v-icon>
         <label class="item__title">

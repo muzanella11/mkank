@@ -7,28 +7,19 @@
           wrap
         >
           <v-flex
-            xs6
-            sm6
-          >
-            <v-btn
-              depressed
-              class="action__button active"
-              width="100%"
-            >
-              Buy
-            </v-btn>
-          </v-flex>
-
-          <v-flex
+            v-for="(item, index) in searchFilter"
+            :key="index"
             xs6
             sm6
           >
             <v-btn
               depressed
               class="action__button"
+              :class="[item.value === filters.status ? 'active' : '']"
               width="100%"
+              @click="setFilterStatus(item)"
             >
-              Rent
+              {{ item.label }}
             </v-btn>
           </v-flex>
         </v-layout>
@@ -39,9 +30,10 @@
         >
           <v-flex
             xs10
-            sm6
+            sm11
           >
             <v-text-field
+              v-model="filters.keywords"
               single-line
               outlined
               label="Search by location or building..."
@@ -51,7 +43,7 @@
 
           <v-flex
             xs2
-            sm6
+            sm1
           >
             <v-btn
               class="keywords__filter-action"
@@ -59,8 +51,9 @@
               fab
               small
               color="#949393"
+              @click="searchTypeAction"
             >
-              <v-icon>mdi-map-marker</v-icon>
+              <v-icon>{{ searchTypeIcon }}</v-icon>
             </v-btn>
           </v-flex>
         </v-layout>
