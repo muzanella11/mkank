@@ -1,12 +1,33 @@
 <template>
-  <v-app id="seller-registration">
-    <v-content
-      ref="mainContent"
-      class="main blank"
+  <div class="l-listing">
+    <v-app-bar
+      fixed
+      class="listing__toolbar"
     >
-      <nuxt />
-    </v-content>
-  </v-app>
+      <v-btn
+        class="toolbar__button"
+        icon
+        @click="backStep"
+      >
+        <v-icon light>
+          mdi-arrow-left
+        </v-icon>
+      </v-btn>
+
+      <v-toolbar-title
+        class="toolbar__title"
+        v-html="toolbarTitle"
+      />
+    </v-app-bar>
+
+    <section class="listing__header" />
+
+    <section class="listing__content">
+      <div class="content-wrapper">
+        <enem-card-signin />
+      </div>
+    </section>
+  </div>
 </template>
 
 <style lang="scss" scoped src="./style.scss"></style>
