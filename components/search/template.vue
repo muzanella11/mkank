@@ -1,5 +1,8 @@
 <template>
-  <div class="c-search">
+  <div
+    class="c-search"
+    :class="[isDashboard ? 'dashboard' : '']"
+  >
     <div class="search__wrapper-content">
       <div class="content-action">
         <v-layout
@@ -28,20 +31,38 @@
           class="action__keywords"
           wrap
         >
-          <v-flex
-            xs10
-            sm11
-          >
-            <v-text-field
-              v-model="filters.keywords"
-              single-line
-              outlined
-              label="Search by location or building..."
-              prepend-inner-icon="mdi-magnify"
-            />
-          </v-flex>
+          <template v-if="isDashboard">
+            <v-flex
+              xs12
+              sm12
+            >
+              <v-text-field
+                v-model="filters.keywords"
+                single-line
+                outlined
+                label="Search by location or building..."
+                prepend-inner-icon="mdi-magnify"
+              />
+            </v-flex>
+          </template>
+
+          <template v-else>
+            <v-flex
+              xs10
+              sm11
+            >
+              <v-text-field
+                v-model="filters.keywords"
+                single-line
+                outlined
+                label="Search by location or building..."
+                prepend-inner-icon="mdi-magnify"
+              />
+            </v-flex>
+          </template>
 
           <v-flex
+            v-if="!isDashboard"
             xs2
             sm1
           >

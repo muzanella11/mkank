@@ -28,7 +28,7 @@
 
               &-header {
                 position: relative;
-                padding: 8px 24px;
+                padding: 8px 16px;
                 padding-bottom: 16px;
                 background: white;
               }
@@ -40,7 +40,7 @@
                 & .list-property-agent {
                   &__title {
                     background: $color-blue-sky;
-                    padding: 8px 24px;
+                    padding: 8px 16px;
                     margin-bottom: 16px;
 
                     & .title {
@@ -79,7 +79,7 @@
                     padding: 0;
 
                     & > li {
-                      margin-bottom: 24px;
+                      margin-bottom: 16px;
                     }
                   }
                 }

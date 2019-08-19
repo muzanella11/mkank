@@ -1,5 +1,9 @@
 export default {
   props: {
+    isDashboard: {
+      type: Boolean,
+      default: false
+    },
     value: {
       type: Object,
       default: () => ({

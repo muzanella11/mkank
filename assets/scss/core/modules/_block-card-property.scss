@@ -7,8 +7,6 @@
 /** This Place For Block Card Property **/
 .#{$namespace} {
   & .c-card-property {
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
-
     & .property {
       &__image {
         position: relative;
@@ -53,7 +51,7 @@
             position: absolute;
             background: $color-secondary;
             z-index: 1;
-            padding: 8px 24px;
+            padding: 8px 16px;
             min-width: 100px;
             max-width: 100%;
             font-size: 12px;
@@ -78,7 +76,7 @@
 
       &__content {
         position: relative;
-        padding: 0 24px;
+        padding: 0 16px;
 
         & .content {
           &-title {

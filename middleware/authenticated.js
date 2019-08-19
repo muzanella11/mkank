@@ -5,7 +5,7 @@ export const EXCEPT_PAGE = [
   'startup',
   'auth-signin',
   'auth-signup',
-  'anu',
+  'dashboard',
   'index'
 ]
 

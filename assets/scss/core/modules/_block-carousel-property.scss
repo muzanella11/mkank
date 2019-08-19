@@ -1,0 +1,72 @@
+/******************************************
+  Some tips for creating blocks / modules :
+  - Add `c` prefix before the name of block or modules
+  - Or Just copy paste this structure of styling code into your new block or components styling file
+  - Dont forget to register your block or modules into `_modules.scss`
+******************************************/
+/** This Place For Block Carousel Property **/
+.#{$namespace} {
+  & .c-carousel-property {
+    & .carousel-property {
+      &-content {
+        & .content {
+          &-right {
+            position: absolute;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: $color-secondary;
+
+            &__avatar {
+              & .avatar {
+                position: absolute;
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                top: -24px;
+                left: 0;
+                right: 0;
+                margin: auto;
+                z-index: 1;
+              }
+            }
+
+            &__title {
+              position: relative;
+              padding-top: 16px;
+              font-size: 12px;
+              text-align: center;
+              overflow: hidden;
+              height: 34px;
+              padding-left: 8px;
+              padding-right: 8px;
+            }
+
+            &__agent {
+              position: relative;
+              width: 100%;
+              height: 33px;
+
+              & img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+
+        &__item {
+          position: relative;
+
+          & a {
+            & img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */
