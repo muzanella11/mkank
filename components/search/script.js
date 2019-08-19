@@ -1,3 +1,5 @@
+import EnemCarouselProperty from '~/components/carousel/carouselproperty/template.vue'
+
 export default {
   props: {
     isDashboard: {
@@ -18,6 +20,10 @@ export default {
     }
   },
 
+  components: {
+    EnemCarouselProperty
+  },
+
   data () {
     return {
       filters: {
@@ -25,6 +31,7 @@ export default {
         status: 'buy',
         type: 'list'
       },
+      dialog: false,
       isViewMap: false,
       isLoading: false,
       searchFilter: [

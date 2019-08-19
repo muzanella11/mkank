@@ -56,25 +56,6 @@
                 position: relative;
                 left: -16px;
                 width: 100vw;
-
-                & .c-carousel-property {
-                  & .carousel-property {
-                    &-content {
-                      & .slick-list {
-                        padding-left: 0 !important;
-                        padding-bottom: 8px !important;
-                      }
-
-                      &__item {
-                        padding-right: 16px;
-
-                        &:first-child {
-                          // margin-right: 16px;
-                        }
-                      }
-                    }
-                  }
-                }
               }
             }
           }
