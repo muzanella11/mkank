@@ -9,6 +9,7 @@
         xs4
         sm4
         class="list-button__item"
+        @click="dialogSort = true"
       >
         <v-icon>mdi-sort-ascending</v-icon>
         <label class="item__title">
@@ -50,6 +51,13 @@
       @input="setDialogFilter"
     />
     <!-- End Dialog Filter -->
+
+    <!-- Begin Dialog Sort -->
+    <enem-dialog-sort
+      :value="dialogSort"
+      @input="setDialogSort"
+    />
+    <!-- End Dialog Sort -->
   </div>
 </template>
 

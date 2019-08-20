@@ -19,15 +19,6 @@
           Filter
         </v-toolbar-title>
         <v-spacer />
-        <v-toolbar-items>
-          <v-btn
-            dark
-            text
-            @click="dialog = false"
-          >
-            Reset
-          </v-btn>
-        </v-toolbar-items>
       </v-toolbar>
 
       <div class="dialog-content">
