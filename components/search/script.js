@@ -1,4 +1,4 @@
-import EnemCarouselProperty from '~/components/carousel/carouselproperty/template.vue'
+import EnemDialogSearch from '~/components/dialog/dialogsearch/template.vue'
 
 export default {
   props: {
@@ -21,7 +21,7 @@ export default {
   },
 
   components: {
-    EnemCarouselProperty
+    EnemDialogSearch
   },
 
   data () {
@@ -31,7 +31,7 @@ export default {
         status: 'buy',
         type: 'list'
       },
-      dialog: false,
+      dialogSearch: false,
       isViewMap: false,
       isLoading: false,
       searchFilter: [
@@ -104,6 +104,10 @@ export default {
       this.filters = Object.assign({}, this.filters, {
         status: item.value
       })
+    },
+
+    setDialogSearch (val) {
+      this.dialogSearch = val
     }
   }
 }

@@ -21,6 +21,7 @@
         xs4
         sm4
         class="list-button__item"
+        @click="dialogFilter = true"
       >
         <v-icon>mdi-filter</v-icon>
         <label class="item__title">
@@ -42,6 +43,13 @@
         </label>
       </v-flex>
     </v-layout>
+
+    <!-- Begin Dialog Filter -->
+    <enem-dialog-filter
+      :value="dialogFilter"
+      @input="setDialogFilter"
+    />
+    <!-- End Dialog Filter -->
   </div>
 </template>
 
