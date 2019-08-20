@@ -9,6 +9,7 @@
   & .c-dialog {
     & .v-toolbar {
       max-height: 56px;
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
     }
 
     &.dialog {
@@ -114,6 +115,140 @@
                 color: black;
               }
             }
+          }
+        }
+      }
+    }
+
+    & .dialog {
+      &-content {
+        position: relative;
+
+        &__container {
+          position: relative;
+          padding: 16px;
+          background: white;
+        }
+      }
+
+      &-section {
+        position: relative;
+        margin-bottom: 8px;
+
+        &__content {
+          position: relative;
+
+          & .content {
+            &-list-type {
+              position: relative;
+              margin: 0;
+              padding: 0;
+              margin-top: 8px;
+
+              @include clearfix;
+
+              & > li {
+                position: relative;
+                width: 47%;
+                float: left;
+                margin-bottom: 16px;
+
+                &:nth-child(odd) {
+                  margin-right: 8px;
+                }
+
+                &:nth-child(even) {
+                  margin-left: 8px;
+                }
+
+                & .v-btn {
+                  text-transform: none;
+                  font-size: 12px;
+                  font-weight: normal;
+
+                  &.active {
+                    background: $color-primary;
+                    color: white;
+                  }
+                }
+              }
+
+              & .list-type {
+                &__item {
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    left: 8px;
+                    top: 6px;
+                    background: $color-primary;
+                    z-index: 1;
+                    border: 1px solid white;
+                  }
+
+                  &.item {
+                    &--yellow {
+                      &::before {
+                        background: $color-map-yellow;
+                      }
+                    }
+
+                    &--green {
+                      &::before {
+                        background: $color-map-green;
+                      }
+                    }
+
+                    &--blue {
+                      &::before {
+                        background: $color-map-blue;
+                      }
+                    }
+
+                    &--lightblue {
+                      &::before {
+                        background: $color-map-lightblue;
+                      }
+                    }
+
+                    &--purple {
+                      &::before {
+                        background: $color-map-purple;
+                      }
+                    }
+
+                    &--orange {
+                      &::before {
+                        background: $color-map-orange;
+                      }
+                    }
+
+                    &--pink {
+                      &::before {
+                        background: $color-map-pink;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &-footer {
+        padding: 8px;
+        padding-top: 24px;
+
+        &__action {
+          &:first-child {
+            padding-right: 8px;
+          }
+
+          &:last-child {
+            padding-left: 8px;
           }
         }
       }

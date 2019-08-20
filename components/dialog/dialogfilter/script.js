@@ -1,4 +1,6 @@
 import EnemCarouselProperty from '~/components/carousel/carouselproperty/template.vue'
+import EnemSliderRange from '~/components/inputs/Sliders/template.vue'
+import EnemPickNumber from '~/components/inputs/PickNumber/template.vue'
 
 export default {
   props: {
@@ -9,13 +11,52 @@ export default {
   },
 
   components: {
-    EnemCarouselProperty
+    EnemCarouselProperty,
+    EnemSliderRange,
+    EnemPickNumber
   },
 
   data () {
     return {
       dialog: false,
-      keywords: ''
+      keywords: '',
+      listFilterType: [
+        {
+          color: 'green',
+          label: 'Home',
+          value: 'home'
+        },
+        {
+          color: 'blue',
+          label: 'Apartement',
+          value: 'apartement'
+        },
+        {
+          color: 'red',
+          label: 'Villa',
+          value: 'villa'
+        },
+        {
+          color: 'pink',
+          label: 'Lands',
+          value: 'lands'
+        },
+        {
+          color: 'purple',
+          label: 'Compound',
+          value: 'compound'
+        },
+        {
+          color: 'yellow',
+          label: 'Comestores',
+          value: 'comestores'
+        },
+        {
+          color: 'orange',
+          label: 'Office',
+          value: 'office'
+        }
+      ]
     }
   },
 
