@@ -105,7 +105,6 @@ export default {
     }),
 
     setShowLegend (val) {
-      console.info('ssss : ', val)
       this.setExploreState({ accessor: 'showLegend', value: val })
     }
   }

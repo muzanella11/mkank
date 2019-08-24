@@ -9,6 +9,10 @@
   & .c-home-list {
     padding-top: 134px;
 
+    &.no-filter {
+      padding-top: 0;
+    }
+
     & .home-list {
       &__section {
         position: relative;

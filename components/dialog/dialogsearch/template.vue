@@ -150,7 +150,6 @@
                 class="dialog-search__wrapper-locbuilding recently-action"
               >
                 <v-btn
-                  flat
                   small
                   text
                 >
@@ -165,6 +164,41 @@
             >
               <enem-carousel-property />
             </v-layout>
+          </v-flex>
+        </v-layout>
+
+        <v-layout
+          wrap
+          class="dialog-search__wrapper-locbuilding action"
+        >
+          <v-flex
+            xs6
+            sm6
+            class="dialog-search__wrapper-locbuilding"
+          >
+            <v-btn
+              small
+              depressed
+              outlined
+              width="100%"
+            >
+              clear
+            </v-btn>
+          </v-flex>
+
+          <v-flex
+            xs6
+            sm6
+            class="dialog-search__wrapper-locbuilding"
+          >
+            <v-btn
+              small
+              depressed
+              width="100%"
+              color="primary"
+            >
+              Find
+            </v-btn>
           </v-flex>
         </v-layout>
       </div>

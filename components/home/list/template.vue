@@ -1,5 +1,8 @@
 <template>
-  <div class="c-home-list">
+  <div
+    class="c-home-list"
+    :class="[noFilter ? 'no-filter' : '']"
+  >
     <!-- Begin Top Picks -->
     <section class="home-list__section section-top-picks">
       <div class="section__content">

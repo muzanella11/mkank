@@ -140,6 +140,22 @@
           }
         }
 
+        &.action {
+          padding: 32px 16px;
+
+          & .dialog-search {
+            &__wrapper-locbuilding {
+              &:first-child {
+                padding-right: 8px;
+              }
+
+              &:last-child {
+                padding-left: 8px;
+              }
+            }
+          }
+        }
+
         &.recently {
           &-search {
             margin-bottom: 8px;
@@ -188,10 +204,6 @@
           border-bottom: 2px solid $color-primary;
           color: $color-primary;
         }
-      }
-
-      & .v-card {
-        background: #EEE !important;
       }
 
       & .recent-list {

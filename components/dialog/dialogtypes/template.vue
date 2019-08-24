@@ -16,7 +16,7 @@
         </v-btn>
         <v-spacer />
         <v-toolbar-title>
-          Sort
+          Types
         </v-toolbar-title>
         <v-spacer />
       </v-toolbar>
@@ -34,7 +34,7 @@
             >
               <ul class="content-list-option">
                 <li
-                  v-for="(item, index) in listSort"
+                  v-for="(item, index) in listTypes"
                   :key="index"
                 >
                   <a href="javascript:;">
