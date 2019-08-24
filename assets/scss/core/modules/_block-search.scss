@@ -12,6 +12,12 @@
     padding: 12px;
     z-index: 1;
 
+    &.dashboard {
+      position: relative;
+      padding: 0;
+      padding-top: 16px;
+    }
+
     & .search {
       &__wrapper-content {
         position: relative;
@@ -115,6 +121,100 @@
                 }
               }
             }
+          }
+        }
+      }
+    }
+  }
+
+  & .dialog {
+    &-search {
+      &__wrapper-locbuilding {
+        position: relative;
+        background: white;
+
+        &.location {
+          &-mode {
+            margin-top: 8px;
+            margin-bottom: 8px;
+          }
+        }
+
+        &.action {
+          padding: 32px 16px;
+
+          & .dialog-search {
+            &__wrapper-locbuilding {
+              &:first-child {
+                padding-right: 8px;
+              }
+
+              &:last-child {
+                padding-left: 8px;
+              }
+            }
+          }
+        }
+
+        &.recently {
+          &-search {
+            margin-bottom: 8px;
+          }
+
+          &-title {
+            text-align: left;
+          }
+
+          &-action {
+            & .v-btn {
+              position: absolute;
+              right: 0;
+              top: -6px;
+              padding: 0;
+              font-size: 12px;
+            }
+          }
+
+          &-content {
+            position: relative;
+            margin-top: 8px;
+
+            &.slider {
+              left: -16px;
+              width: 100vw;
+            }
+          }
+        }
+      }
+
+      &__keywords {
+        & .v-text-field__details {
+          display: none;
+        }
+      }
+
+      &__locbuilding {
+        position: relative;
+        padding: 16px;
+        border-bottom: 2px solid #EEE;
+        text-align: center;
+        font-size: 12px;
+
+        &.active {
+          border-bottom: 2px solid $color-primary;
+          color: $color-primary;
+        }
+      }
+
+      & .recent-list {
+        margin: 0;
+        padding: 0;
+
+        & li {
+          margin-bottom: 8px;
+
+          &:last-child {
+            margin-bottom: 0;
           }
         }
       }

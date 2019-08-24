@@ -1,0 +1,81 @@
+/******************************************
+  Some tips for creating blocks / modules :
+  - Add `c` prefix before the name of block or modules
+  - Or Just copy paste this structure of styling code into your new block or components styling file
+  - Dont forget to register your block or modules into `_modules.scss`
+******************************************/
+/** This Place For Block Current Location **/
+.#{$namespace} {
+  & .c-current-location {
+    position: relative;
+
+    & .current-location {
+      &__wrapper {
+        position: relative;
+
+        & .wrapper {
+          &-content {
+            position: relative;
+
+            &.input {
+              padding-bottom: 8px;
+              border-bottom: 1px solid white;
+            }
+
+            &__input {
+              position: relative;
+              color: white;
+
+              & .input {
+                &-icon {
+                  position: relative;
+
+                  & .v-icon {
+                    font-size: 32px;
+                    top: 3px;
+                    position: relative;
+                    color: white;
+                  }
+                }
+
+                &-description {
+                  position: relative;
+                  padding-left: 16px;
+
+                  & .description {
+                    &__label {
+                      font-size: 12px;
+                    }
+
+                    &__place {
+                      //
+                    }
+                  }
+                }
+              }
+            }
+
+            &.action {
+              //
+            }
+
+            &__action {
+              position: relative;
+
+              & .action {
+                &-button {
+                  & .v-btn {
+                    position: relative;
+                    top: 8px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */

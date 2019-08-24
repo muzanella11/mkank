@@ -1,0 +1,291 @@
+/******************************************
+  Some tips for creating blocks / modules :
+  - Add `c` prefix before the name of block or modules
+  - Or Just copy paste this structure of styling code into your new block or components styling file
+  - Dont forget to register your block or modules into `_modules.scss`
+******************************************/
+/** This Place For Block Dialog **/
+.#{$namespace} {
+  & .c-dialog {
+    & .v-toolbar {
+      max-height: 56px;
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &.dialog {
+      &-search {
+        &__wrapper-locbuilding {
+          position: relative;
+          background: white;
+
+          &.location {
+            &-mode {
+              margin-top: 8px;
+              margin-bottom: 8px;
+            }
+          }
+
+          &.recently {
+            &-search {
+              margin-bottom: 8px;
+            }
+
+            &-title {
+              text-align: left;
+            }
+
+            &-action {
+              & .v-btn {
+                position: absolute;
+                right: 0;
+                top: -6px;
+                padding: 0;
+                font-size: 12px;
+              }
+            }
+
+            &-content {
+              position: relative;
+              margin-top: 8px;
+
+              &.slider {
+                left: -16px;
+                width: 100vw;
+              }
+            }
+          }
+        }
+
+        &__keywords {
+          & .v-text-field__details {
+            display: none;
+          }
+        }
+
+        &__locbuilding {
+          position: relative;
+          padding: 16px;
+          border-bottom: 2px solid #EEE;
+          text-align: center;
+          font-size: 12px;
+
+          &.active {
+            border-bottom: 2px solid $color-primary;
+            color: $color-primary;
+          }
+        }
+
+        & .recent-list {
+          margin: 0;
+          padding: 0;
+
+          & li {
+            margin-bottom: 8px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      &-filter-sort {
+        & .v-sheet {
+          & .v-toolbar__content {
+            background: white;
+          }
+        }
+
+        & .v-toolbar__title {
+          font-size: 12px;
+          color: black;
+        }
+
+        & .v-toolbar__items {
+          & .v-btn {
+            font-size: 12px;
+            color: $color-primary;
+
+            &__content {
+              & .v-icon {
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & .dialog {
+      &-content {
+        position: relative;
+
+        &__container {
+          position: relative;
+          padding: 16px;
+          background: white;
+        }
+      }
+
+      &-section {
+        position: relative;
+        margin-bottom: 8px;
+
+        &__content {
+          position: relative;
+
+          & .content {
+            &-list-type {
+              position: relative;
+              margin: 0;
+              padding: 0;
+              margin-top: 8px;
+
+              @include clearfix;
+
+              & > li {
+                position: relative;
+                width: 47%;
+                float: left;
+                margin-bottom: 16px;
+
+                &:nth-child(odd) {
+                  margin-right: 8px;
+                }
+
+                &:nth-child(even) {
+                  margin-left: 8px;
+                }
+
+                & .v-btn {
+                  text-transform: none;
+                  font-size: 12px;
+                  font-weight: normal;
+
+                  &.active {
+                    background: $color-primary;
+                    color: white;
+                  }
+                }
+              }
+
+              & .list-type {
+                &__item {
+                  &::before {
+                    content: "";
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    left: 8px;
+                    top: 6px;
+                    background: $color-primary;
+                    z-index: 1;
+                    border: 1px solid white;
+                  }
+
+                  &.item {
+                    &--yellow {
+                      &::before {
+                        background: $color-map-yellow;
+                      }
+                    }
+
+                    &--green {
+                      &::before {
+                        background: $color-map-green;
+                      }
+                    }
+
+                    &--blue {
+                      &::before {
+                        background: $color-map-blue;
+                      }
+                    }
+
+                    &--lightblue {
+                      &::before {
+                        background: $color-map-lightblue;
+                      }
+                    }
+
+                    &--purple {
+                      &::before {
+                        background: $color-map-purple;
+                      }
+                    }
+
+                    &--orange {
+                      &::before {
+                        background: $color-map-orange;
+                      }
+                    }
+
+                    &--pink {
+                      &::before {
+                        background: $color-map-pink;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+            &-list-option {
+              position: relative;
+              margin: 0;
+              padding: 0;
+
+              & > li {
+                position: relative;
+                margin-bottom: 8px;
+
+                & > a {
+                  position: relative;
+                  text-decoration: none;
+                  color: $color-text-grey;
+                  border-bottom: 1px solid $color-text-grey;
+                  padding-bottom: 8px;
+                  padding-right: 32px;
+                  display: block;
+
+                  & .v-icon {
+                    position: absolute;
+                    right: 0;
+                    display: none;
+                  }
+
+                  &.active {
+                    color: $color-primary;
+
+                    & .v-icon {
+                      display: inline-block;
+                      color: $color-primary;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &-footer {
+        padding: 8px;
+        padding-top: 24px;
+
+        &__action {
+          &:first-child {
+            padding-right: 8px;
+          }
+
+          &:last-child {
+            padding-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */

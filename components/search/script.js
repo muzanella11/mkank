@@ -1,5 +1,11 @@
+import EnemDialogSearch from '~/components/dialog/dialogsearch/template.vue'
+
 export default {
   props: {
+    isDashboard: {
+      type: Boolean,
+      default: false
+    },
     value: {
       type: Object,
       default: () => ({
@@ -14,6 +20,10 @@ export default {
     }
   },
 
+  components: {
+    EnemDialogSearch
+  },
+
   data () {
     return {
       filters: {
@@ -21,6 +31,7 @@ export default {
         status: 'buy',
         type: 'list'
       },
+      dialogSearch: false,
       isViewMap: false,
       isLoading: false,
       searchFilter: [
@@ -93,6 +104,10 @@ export default {
       this.filters = Object.assign({}, this.filters, {
         status: item.value
       })
+    },
+
+    setDialogSearch (val) {
+      this.dialogSearch = val
     }
   }
 }

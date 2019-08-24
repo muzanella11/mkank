@@ -1,0 +1,68 @@
+/******************************************
+  Some tips for creating layouts :
+  - Add `l` prefix before the name of layouts
+  - Or Just copy paste this structure of styling code into your new layouts styling file
+  - Dont forget to register your layouts into `_layouts.scss`
+******************************************/
+/** This Place For Layouts Dashboard **/
+.#{$namespace} {
+  & .l-dashboard {
+    padding-bottom: 80px;
+
+    & .dashboard {
+      &-header {
+        position: relative;
+        padding: 32px 16px;
+        background: $color-secondary;
+      }
+
+      &-content {
+        position: relative;
+        padding: 0 16px;
+
+        & .content {
+          &-section {
+            position: relative;
+
+            &__header {
+              position: relative;
+              padding: 24px 0;
+
+              & .header {
+                &-content {
+                  position: relative;
+
+                  &__title {
+                    font-size: 12px;
+                  }
+
+                  &__action {
+                    font-size: 12px;
+
+                    & .v-btn {
+                      font-size: 12px;
+                      text-transform: none;
+                      font-weight: normal;
+                    }
+                  }
+                }
+              }
+            }
+
+            &__main {
+              position: relative;
+
+              &.saved-collections {
+                position: relative;
+                left: -16px;
+                width: 100vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */

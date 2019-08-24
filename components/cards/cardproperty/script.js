@@ -2,6 +2,10 @@ import EnemCards from './../carddefault/template.vue'
 
 export default {
   props: {
+    agentDetail: {
+      type: Boolean,
+      default: false
+    },
     entries: {
       type: Object,
       default: () => ({
