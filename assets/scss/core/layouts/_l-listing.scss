@@ -4,7 +4,7 @@
   - Or Just copy paste this structure of styling code into your new layouts styling file
   - Dont forget to register your layouts into `_layouts.scss`
 ******************************************/
-/** This Place For Layouts listing **/
+/** This Place For Layouts Listing **/
 .#{$namespace} {
   & .l-listing {
     position: relative;
@@ -53,7 +53,7 @@
             padding-bottom: 32px;
 
             & .c-card {
-              &-listingentication {
+              &-authentication {
                 top: -48px;
                 box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
               }

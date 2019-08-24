@@ -1,5 +1,8 @@
 <template>
-  <div class="l-listing">
+  <div
+    class="l-listing"
+    :class="[roleActive !== 'seller' ? 'listing--seller' : 'listing--seller' ]"
+  >
     <v-app-bar
       fixed
       class="listing__toolbar"
@@ -24,7 +27,7 @@
 
     <section class="listing__content">
       <div class="content-wrapper">
-        <enem-card-signin />
+        <enem-card-listing />
       </div>
     </section>
   </div>
