@@ -10,8 +10,10 @@ export default {
         subheader: `What's your language preferences ?`,
         separator: 'Or',
         wizard: [
-          'Profile',
-          'Verification'
+          'Basic Info',
+          'Location',
+          'Detail',
+          'Photo'
         ],
         buttonAction: [
           {

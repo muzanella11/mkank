@@ -1,28 +1,23 @@
 <template>
-  <enem-cards class="c-card-authentication signup">
-    <div class="authentication__content">
+  <enem-cards class="c-card-listing signup">
+    <div class="listing__content">
       <div
         class="c-wizard-diamond"
       >
         <ul class="wizard-diamond__list">
-          <li>
+          <li
+            v-for="(itemWizard, indexWizard) in entries.wizard"
+            :key="indexWizard"
+            :class="[indexWizard + 1 === wizardActive ? 'active' : '']"
+            :style="{left: `-${parseInt((wizardActive - 1) * 50)}%`}"
+          >
             <div class="c-diamond">
               <span class="text">
-                1
+                {{ indexWizard + 1 }}
               </span>
             </div>
             <div class="list__wording text-small text-grey">
-              Basic info
-            </div>
-          </li>
-          <li>
-            <div class="c-diamond">
-              <span class="text">
-                2
-              </span>
-            </div>
-            <div class="list__wording text-small text-grey">
-              Location
+              {{ itemWizard }}
             </div>
           </li>
         </ul>
@@ -32,7 +27,7 @@
 
       <div class="content-form">
         <v-layout
-          class="content-form__seller-type"
+          class="content-form__item"
           wrap
         >
           <v-flex
@@ -54,7 +49,8 @@
             >
               <v-btn
                 width="100%"
-                class="no-border active"
+                text
+                class="item-action__button no-border active"
               >
                 Owner
               </v-btn>
@@ -65,7 +61,8 @@
               sm6
             >
               <v-btn
-                class="no-border"
+                text
+                class="item-action__button no-border"
                 width="100%"
               >
                 Agent
@@ -75,7 +72,7 @@
         </v-layout>
 
         <v-layout
-          class="content-form__seller-type"
+          class="content-form__item"
           wrap
         >
           <v-flex
@@ -98,7 +95,8 @@
             >
               <v-btn
                 width="100%"
-                class="no-border active"
+                text
+                class="item-action__button no-border active"
               >
                 Sell
               </v-btn>
@@ -109,7 +107,8 @@
               sm6
             >
               <v-btn
-                class="no-border"
+                text
+                class="item-action__button no-border"
                 width="100%"
               >
                 Rent
@@ -119,7 +118,7 @@
         </v-layout>
 
         <v-layout
-          class="content-form__seller-type"
+          class="content-form__item"
           wrap
         >
           <v-flex
@@ -141,7 +140,8 @@
             >
               <v-btn
                 width="100%"
-                class="no-border"
+                text
+                class="item-action__button no-border"
               >
                 Residential
               </v-btn>
@@ -152,7 +152,8 @@
               sm6
             >
               <v-btn
-                class="no-border"
+                text
+                class="item-action__button no-border"
                 width="100%"
               >
                 Commercial
@@ -179,7 +180,7 @@
         </v-layout>
 
         <v-layout
-          class="content-form__seller-type"
+          class="content-form__item"
           wrap
         >
           <v-layout wrap>
@@ -188,19 +189,20 @@
               sm6
             >
               <v-btn
-                class="category active-category"
+                text
+                class="item-action__button category active"
                 width="97%"
               >
                 Apartment
               </v-btn>
             </v-flex>
             <v-flex
-              class=""
               xs6
               sm6
             >
               <v-btn
-                class="category"
+                text
+                class="item-action__button category"
                 width="97%"
               >
                 House/Villa
@@ -212,7 +214,8 @@
               sm6
             >
               <v-btn
-                class="category"
+                text
+                class="item-action__button category"
                 width="97%"
               >
                 Residential Lan
@@ -224,7 +227,8 @@
               sm6
             >
               <v-btn
-                class="category"
+                text
+                class="item-action__button category"
                 width="97%"
               >
                 Leisure
@@ -251,29 +255,29 @@
         </v-layout>
 
         <v-layout
-          class="content-form__seller-type"
+          class="content-form__item"
           wrap
         >
           <v-layout wrap>
             <v-flex
-              class=""
               xs6
               sm6
             >
               <v-btn
-                class="category active-category d-flex flex-no-wrap py-3"
+                text
+                class="item-action__button category active d-flex flex-no-wrap py-3"
                 width="97%"
               >
                 Residential
               </v-btn>
             </v-flex>
             <v-flex
-              class=""
               xs6
               sm6
             >
               <v-btn
-                class="category"
+                text
+                class="item-action__button category"
                 width="97%"
               >
                 House/Villa
@@ -285,7 +289,8 @@
               sm6
             >
               <v-btn
-                class="category"
+                text
+                class="item-action__button category"
                 width="97%"
               >
                 Residential Lan
@@ -297,7 +302,8 @@
               sm6
             >
               <v-btn
-                class="category"
+                text
+                class="item-action__button category"
                 width="97%"
               >
                 Leisure

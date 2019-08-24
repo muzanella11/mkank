@@ -1,0 +1,144 @@
+/******************************************
+  Some tips for creating blocks / modules :
+  - Add `c` prefix before the name of block or modules
+  - Or Just copy paste this structure of styling code into your new block or components styling file
+  - Dont forget to register your block or modules into `_modules.scss`
+******************************************/
+/** This Place For Block Card Listing **/
+.#{$namespace} {
+  & .c-card-listing {
+    position: relative;
+    overflow: hidden;
+
+    & .listing {
+      &__content {
+        position: relative;
+        padding: 32px 24px;
+
+        & .content {
+          &-header {
+            text-align: center;
+          }
+
+          &-subheader {
+            text-align: center;
+          }
+
+          &-step {
+            height: 16px;
+
+            & .step {
+              &-list {
+                position: absolute;
+                display: flex;
+                left: 35%;
+
+                @include clearfix;
+
+                & > li {
+                  position: relative;
+                  float: left;
+                  width: 120px;
+                  opacity: 0.2;
+
+                  &.active {
+                    opacity: 1;
+                  }
+                }
+
+                &__wording {
+                  position: absolute;
+                  top: -7px;
+                  left: 40px;
+                }
+              }
+            }
+          }
+
+          &-action {
+            & .action {
+              &__wording {
+                padding-top: 6px;
+              }
+
+              &__button {
+                border-radius: 0;
+
+                &.disabled {
+                  background-color: rgba(0, 0, 0, 0.3) !important;
+                }
+              }
+            }
+          }
+
+          &-form {
+            &__item {
+              margin-bottom: 32px;
+
+              & .item {
+                &__wrapper-button {
+                  & .wrapper-button {
+                    &__item {
+                      border: 1px solid black;
+
+                      &:first-child {
+                        border-right: 0;
+                      }
+                    }
+                  }
+                }
+
+                &__button {
+                  border-radius: 0;
+                  background-color: white !important;
+                  color: black;
+
+                  &.active {
+                    background-color: $color-gold !important;
+                    color: $color-gold-dark;
+                  }
+                }
+
+                &-action {
+                  &__button {
+                    font-size: 12px;
+
+                    &.active,
+                    &:hover,
+                    &::before {
+                      background-color: #FFE0BB !important;
+                      color: #9B5400 !important;
+                      text-transform: none !important;
+                      border: 1px solid #E8BF8E !important;
+                      border-radius: 0 1px 1px 0 !important;
+                    }
+
+                    &.category {
+                      &.active,
+                      &:hover,
+                      &::before {
+                        background-color: #7C0A27 !important;
+                        color: white !important;
+                        text-transform: none !important;
+                        border: 1px solid #58081C !important;
+                        border-radius: 2px !important;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &-notes {
+            font-size: 12px;
+            color: $color-text-grey;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */

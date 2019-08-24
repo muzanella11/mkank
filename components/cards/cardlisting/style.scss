@@ -23,14 +23,6 @@
     text-transform: none !important;
 }
 
-.active, .btn:hover, .v-btn:before {
-    background-color:#FFE0BB !important;
-    color:#9B5400 !important;
-    text-transform: none !important;
-    border: 1px solid #E8BF8E !important;
-    border-radius: 0px 1px 1px 0px !important;
-}
-
 .v-btn__content:before {
     color: brown !important;
     word-wrap: break-word !important;
@@ -49,13 +41,6 @@
     font-family:""
 }
 
-.active-category, .v-btn:hover, .v-btn:before {
-    background-color:#7C0A27 !important;
-    color: white !important;
-    text-transform: none !important;
-    border: 1px solid #58081C !important;
-    border-radius: 0px 1px 1px 0px !important;
-}
-.word-wrap { 
+.word-wrap {
     overflow-wrap: break-word !important;
 }
