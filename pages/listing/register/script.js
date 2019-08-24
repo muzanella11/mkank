@@ -1,22 +1,29 @@
-import EnemCardListing from '~/components/cards/cardlisting/template.vue'
+import FormBasicInfo from '~/components/cards/cardlisting/basicinfo/template.vue'
+import FormLocation from '~/components/cards/cardlisting/location/template.vue'
+import FormDetails from '~/components/cards/cardlisting/details/template.vue'
+import FormPhoto from '~/components/cards/cardlisting/photo/template.vue'
 
 export default {
   layout: 'blank/template',
 
   components: {
-    EnemCardListing
+    FormBasicInfo,
+    FormLocation,
+    FormDetails,
+    FormPhoto
   },
   computed: {
     toolbarTitle () {
       return 'Register'
     },
+
     roleActive () {
       const role = this.$route.query.role
       return role === undefined ? 'buyer' : role.toLowerCase()
     },
 
-    stepActive () {
-      return this.$route.query.step === undefined ? 1 : parseInt(this.$route.query.step)
+    wizardActive () {
+      return this.$route.query.wizard === undefined || !this.$route.query.wizard ? 1 : parseInt(this.$route.query.wizard)
     }
   },
   mounted () {

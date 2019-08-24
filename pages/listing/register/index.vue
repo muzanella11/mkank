@@ -27,7 +27,10 @@
 
     <section class="listing__content">
       <div class="content-wrapper">
-        <enem-card-listing />
+        <form-basic-info v-if="wizardActive === 1" />
+        <form-location v-if="wizardActive === 2" />
+        <form-details v-if="wizardActive === 3" />
+        <form-photo v-if="wizardActive === 4" />
       </div>
     </section>
   </div>
