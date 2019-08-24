@@ -1,14 +1,23 @@
-import StartupMixins from '~/mixins/startup'
 import BrandLogo from '~/components/BrandLogo.vue'
+import EnemCardCalculatorCount from '~/components/cards/cardcalculatorcount/template.vue'
 
 export default {
   layout: 'blank/template',
 
   components: {
-    BrandLogo
+    BrandLogo,
+    EnemCardCalculatorCount
   },
 
-  mixins: [
-    StartupMixins
-  ]
+  data () {
+    return {
+      //
+    }
+  },
+
+  methods: {
+    backStep () {
+      this.$router.push({ path: '/dashboard' })
+    }
+  }
 }

@@ -21,7 +21,99 @@
 
     <section class="calculator__content">
       <div class="content-wrapper">
-        Calculator
+        <enem-card-calculator-count />
+
+        <div class="content-notes">
+          <v-icon>
+            mdi-information
+          </v-icon>
+          This calculation is an estimation only
+        </div>
+
+        <div class="content-form">
+          <v-layout
+            class="content-form__wrapper"
+            wrap
+          >
+            <v-flex
+              class="content-form__item"
+              xs12
+              sm6
+            >
+              <v-text-field
+                outlined
+                label="Property Price"
+              />
+            </v-flex>
+          </v-layout>
+
+          <v-layout
+            class="content-form__wrapper"
+            wrap
+          >
+            <v-flex
+              class="content-form__item"
+              xs8
+              sm6
+            >
+              <v-text-field
+                outlined
+                label="Downpayment"
+              />
+            </v-flex>
+
+            <v-flex
+              class="content-form__item or"
+              xs2
+              sm6
+            >
+              or
+            </v-flex>
+
+            <v-flex
+              class="content-form__item"
+              xs2
+              sm6
+            >
+              <v-text-field
+                outlined
+                label="%"
+              />
+            </v-flex>
+          </v-layout>
+
+          <v-layout
+            class="content-form__wrapper"
+            wrap
+          >
+            <v-flex
+              class="content-form__item"
+              xs12
+              sm6
+            >
+              <v-text-field
+                outlined
+                label="Interest Rate"
+              />
+            </v-flex>
+          </v-layout>
+
+          <v-layout
+            class="content-form__wrapper"
+            wrap
+          >
+            <v-flex
+              class="content-form__item"
+              xs12
+              sm6
+            >
+              <v-text-field
+                outlined
+                label="Loan Term"
+              />
+            </v-flex>
+          </v-layout>
+        </div>
       </div>
     </section>
   </div>

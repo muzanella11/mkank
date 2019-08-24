@@ -57,6 +57,12 @@
                 left: -16px;
                 width: 100vw;
               }
+
+              & .action {
+                &-calculator {
+                  color: black;
+                }
+              }
             }
           }
         }

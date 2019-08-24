@@ -52,6 +52,11 @@ export default {
       this.filters = Object.assign({}, this.filters, {
         type: this.$route.query.type !== undefined ? this.$route.query.type : 'list'
       })
+    },
+
+    calculatorCountPage () {
+      console.info('sss')
+      this.$router.push({ path: '/calculator' })
     }
   }
 }

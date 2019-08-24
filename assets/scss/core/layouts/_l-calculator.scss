@@ -1,0 +1,100 @@
+/******************************************
+  Some tips for creating layouts :
+  - Add `l` prefix before the name of layouts
+  - Or Just copy paste this structure of styling code into your new layouts styling file
+  - Dont forget to register your layouts into `_layouts.scss`
+******************************************/
+/** This Place For Layouts Calculator **/
+.#{$namespace} {
+  & .l-calculator {
+    position: relative;
+    padding-top: 56px;
+
+    & .calculator {
+      &__content {
+        position: relative;
+        padding: 0 16px;
+
+        & .content {
+          &-wrapper {
+            position: relative;
+
+            & .c-card-calculator {
+              margin-top: 24px;
+              margin-bottom: 24px;
+            }
+          }
+
+          &-notes {
+            font-size: 12px;
+            color: $color-text-grey;
+            margin-bottom: 32px;
+
+            & .v-icon {
+              color: $color-secondary;
+            }
+          }
+
+          &__counter {
+            position: relative;
+            text-align: right;
+            font-size: 13px;
+
+            & .counter {
+              &-total-loan {
+                position: relative;
+                border-bottom: 1px solid #EEE;
+                padding-bottom: 4px;
+                margin-bottom: 4px;
+
+                & .price {
+                  color: $color-primary;
+                  font-weight: bold;
+                }
+              }
+
+              &-per-month {
+                position: relative;
+
+                & .price {
+                  color: $color-secondary;
+                  font-size: 16px;
+                  font-weight: bold;
+                }
+              }
+            }
+          }
+
+          &-form {
+            position: relative;
+
+            & .content-form {
+              &__wrapper {
+                position: relative;
+              }
+
+              &__item {
+                position: relative;
+
+                &.or {
+                  padding: 16px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__toolbar {
+        & .v-toolbar {
+          &__title {
+            //
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */
