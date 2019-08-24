@@ -1,7 +1,5 @@
 <template>
-  <enem-cards
-    class="c-card-calculator"
-  >
+  <enem-cards class="c-card-calculator">
     <div
       class="calculator-wrapper"
     >
@@ -25,7 +23,14 @@
           sm6
           class="content__title"
         >
-          Count monthly installment for your dream property here
+          <div class="content__counter">
+            <div class="counter-total-loan">
+              Total Loan <span class="price">3000 QAR</span>
+            </div>
+            <div class="counter-per-month">
+              <span class="price">3000 QAR</span> / Month
+            </div>
+          </div>
         </v-flex>
       </v-layout>
     </div>

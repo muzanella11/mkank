@@ -7,6 +7,7 @@ export const EXCEPT_PAGE = [
   'auth-signup',
   'dashboard',
   'search',
+  'calculator',
   'index'
 ]
 

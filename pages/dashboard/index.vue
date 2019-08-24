@@ -66,7 +66,13 @@
         </header>
 
         <div class="content-section__main">
-          <enem-calculator />
+          <a
+            href="javascript:;"
+            class="action-calculator"
+            @click="calculatorCountPage"
+          >
+            <enem-calculator />
+          </a>
         </div>
       </section>
     </div>
