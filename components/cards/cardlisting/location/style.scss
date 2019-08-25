@@ -1,4 +1,7 @@
 //
+.m-top-20 {
+    margin-top: 20px;
+}
 .m-top-10 {
     margin-top: 8px;
 }
@@ -43,4 +46,12 @@
 
 .word-wrap {
     overflow-wrap: break-word !important;
+}
+.outline-color {
+    color: #C2C2C2 !important;
+}
+.previous {
+    border: 1px solid #7C0A27;
+    color: #7C0A27;
+    background-color: none;
 }
