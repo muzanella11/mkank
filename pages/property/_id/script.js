@@ -3,7 +3,7 @@ import EnemCardCalculator from '~/components/cards/cardcalculator/template.vue'
 import EnemDialogPropertyInformation from '~/components/dialog/dialogpropertyinformation/template.vue'
 
 export default {
-  layout: 'blank/template',
+  layout: 'propertydetail/template',
 
   components: {
     EnemCardPropertyDetail,

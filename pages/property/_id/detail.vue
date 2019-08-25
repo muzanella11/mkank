@@ -174,6 +174,59 @@
       </div>
     </section>
 
+    <section class="property-detail__section section--contact">
+      <div class="section-content">
+        <div class="content__left">
+          <div class="content__agent-logo">
+            <img
+              src="https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2"
+              alt="agent-logo"
+            >
+          </div>
+          <div class="content__agent-detail">
+            <div class="agent-avatar">
+              <img
+                src="https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2"
+                alt="agent-logo"
+              >
+            </div>
+
+            <div class="agent-detail">
+              <div class="agent-detail__name">
+                Kelly Rowland
+              </div>
+              <div class="agent-detail__date-join">
+                Since 01 Jan 2019
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content__right">
+          <div class="content__contact">
+            <v-btn
+              fab
+              x-small
+              color="primary"
+            >
+              <v-icon>
+                mdi-message-processing
+              </v-icon>
+            </v-btn>
+
+            <v-btn
+              fab
+              x-small
+              color="primary"
+            >
+              <v-icon>
+                mdi-phone
+              </v-icon>
+            </v-btn>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Begin Dialog Property Information -->
     <enem-dialog-property-information
       :value="dialogPropertyInformation"

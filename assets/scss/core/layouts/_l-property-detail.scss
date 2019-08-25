@@ -7,6 +7,8 @@
 /** This Place For Layouts Property Detail **/
 .#{$namespace} {
   & .l-property-detail {
+    padding-bottom: 56px;
+
     & .property-detail {
       &__toolbar {
         z-index: 2;
@@ -137,6 +139,90 @@
         &.section {
           &--calculator {
             background: #EEE;
+          }
+
+          &--contact {
+            padding: 0;
+
+            & .section {
+              &-content {
+                position: relative;
+
+                @include clearfix;
+
+                & .content {
+                  &__left,
+                  &__right {
+                    float: left;
+                    padding: 16px;
+                  }
+
+                  &__left {
+                    position: relative;
+                    width: 50%;
+                    background: $color-secondary;
+
+                    & .content {
+                      &__agent {
+                        &-logo {
+                          & img {
+                            width: 30px;
+                          }
+                        }
+
+                        &-detail {
+                          position: relative;
+
+                          @include clearfix;
+
+                          & .agent {
+                            &-avatar {
+                              float: left;
+                              padding-right: 8px;
+
+                              & img {
+                                width: 30px;
+                                border-radius: 50%;
+                              }
+                            }
+
+                            &-detail {
+                              position: relative;
+                              float: left;
+                              font-size: 12px;
+                              width: 70%;
+
+                              &__name {
+                                font-weight: bold;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  &__right {
+                    position: relative;
+                    width: 50%;
+                    text-align: center;
+                    padding-top: 14%;
+
+                    & .content {
+                      &__contact {
+                        & .v-btn {
+                          margin-right: 16px;
+
+                          &:last-child {
+                            margin-right: 0;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
 
