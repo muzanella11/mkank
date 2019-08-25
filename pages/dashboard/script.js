@@ -55,7 +55,6 @@ export default {
     },
 
     calculatorCountPage () {
-      console.info('sss')
       this.$router.push({ path: '/calculator' })
     }
   }
