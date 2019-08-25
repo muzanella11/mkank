@@ -130,6 +130,7 @@
           text
           color="primary"
           class="action-button"
+          @click="dialogPropertyInformation = true"
         >
           See All
         </v-btn>
@@ -172,6 +173,13 @@
         </v-btn>
       </div>
     </section>
+
+    <!-- Begin Dialog Property Information -->
+    <enem-dialog-property-information
+      :value="dialogPropertyInformation"
+      @input="setDialogPropertyInformation"
+    />
+    <!-- End Dialog Property Information -->
   </div>
 </template>
 

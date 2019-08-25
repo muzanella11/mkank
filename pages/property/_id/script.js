@@ -1,40 +1,33 @@
 import EnemCardPropertyDetail from '~/components/cards/cardpropertydetail/template.vue'
 import EnemCardCalculator from '~/components/cards/cardcalculator/template.vue'
+import EnemDialogPropertyInformation from '~/components/dialog/dialogpropertyinformation/template.vue'
 
 export default {
   layout: 'blank/template',
 
   components: {
     EnemCardPropertyDetail,
-    EnemCardCalculator
+    EnemCardCalculator,
+    EnemDialogPropertyInformation
   },
 
-  computed: {
-    toolbarTitle () {
-      return 'Register'
-    },
-
-    roleActive () {
-      const role = this.$route.query.role
-      return role === undefined ? 'buyer' : role.toLowerCase()
-    },
-
-    stepActive () {
-      return this.$route.query.step === undefined ? 1 : parseInt(this.$route.query.step)
+  data () {
+    return {
+      dialogPropertyInformation: false
     }
   },
 
   methods: {
     backStep () {
-      if (this.stepActive > 1) {
-        this.$router.go(-1)
-      } else {
-        this.$router.push({ path: '/startup' })
-      }
+      this.$router.push({ path: '/dashboard' })
     },
 
     calculatorCountPage () {
       this.$router.push({ path: '/calculator' })
+    },
+
+    setDialogPropertyInformation (val) {
+      this.dialogPropertyInformation = val
     }
   }
 }
