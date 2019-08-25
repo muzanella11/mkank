@@ -8,6 +8,7 @@ export const EXCEPT_PAGE = [
   'dashboard',
   'search',
   'calculator',
+  'property-id-detail',
   'index'
 ]
 

@@ -1,0 +1,269 @@
+/******************************************
+  Some tips for creating layouts :
+  - Add `l` prefix before the name of layouts
+  - Or Just copy paste this structure of styling code into your new layouts styling file
+  - Dont forget to register your layouts into `_layouts.scss`
+******************************************/
+/** This Place For Layouts Property Detail **/
+.#{$namespace} {
+  & .l-property-detail {
+    padding-bottom: 56px;
+
+    & .property-detail {
+      &__toolbar {
+        z-index: 2;
+
+        & .toolbar {
+          &__button {
+            color: white;
+          }
+        }
+      }
+
+      &__section {
+        position: relative;
+        padding: 16px;
+        border-bottom: 3px solid #EEE;
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        & .section {
+          &-header {
+            position: relative;
+            margin-bottom: 8px;
+          }
+
+          &-content {
+            position: relative;
+
+            & .content {
+              &__list {
+                position: relative;
+                margin: 0;
+                padding: 0;
+
+                @include clearfix;
+
+                & .list {
+                  &-item {
+                    position: relative;
+                    float: left;
+                    padding-right: 8px;
+                    margin-bottom: 8px;
+                  }
+                }
+              }
+
+              &__location {
+                position: relative;
+                margin-bottom: 16px;
+
+                @include clearfix;
+
+                & .location {
+                  &-icon {
+                    position: relative;
+                    float: left;
+                    width: 32px;
+                  }
+
+                  &-content {
+                    position: relative;
+                    float: left;
+                    width: 88%;
+                    padding-bottom: 8px;
+                    border-bottom: 1px solid #EEE;
+                    font-size: 12px;
+                  }
+                }
+              }
+
+              &__property-information {
+                position: relative;
+                margin-bottom: 8px;
+
+                & .property-information {
+                  &__list {
+                    position: relative;
+                    margin: 0;
+                    padding-left: 32px;
+                  }
+                }
+              }
+
+              &__similar {
+                position: relative;
+
+                & .similar {
+                  &-map {
+                    position: relative;
+                    min-height: 50vw;
+                    background: #EEE;
+                    margin-bottom: 16px;
+                    border-radius: 2px;
+                  }
+
+                  &-list {
+                    position: relative;
+                    margin: 0;
+                    padding: 0;
+                  }
+                }
+              }
+            }
+          }
+
+          &-footer {
+            position: relative;
+            text-align: center;
+            font-size: 12px;
+            padding-top: 16px;
+
+            & .action {
+              &-button {
+                font-size: 12px;
+                text-transform: none;
+              }
+            }
+          }
+        }
+
+        & .action {
+          &-calculator {
+            color: black;
+          }
+        }
+
+        &.section {
+          &--calculator {
+            background: #EEE;
+          }
+
+          &--contact {
+            padding: 0;
+
+            & .section {
+              &-content {
+                position: relative;
+
+                @include clearfix;
+
+                & .content {
+                  &__left,
+                  &__right {
+                    float: left;
+                    padding: 16px;
+                  }
+
+                  &__left {
+                    position: relative;
+                    width: 50%;
+                    background: $color-secondary;
+
+                    & .content {
+                      &__agent {
+                        &-logo {
+                          & img {
+                            width: 30px;
+                          }
+                        }
+
+                        &-detail {
+                          position: relative;
+
+                          @include clearfix;
+
+                          & .agent {
+                            &-avatar {
+                              float: left;
+                              padding-right: 8px;
+
+                              & img {
+                                width: 30px;
+                                border-radius: 50%;
+                              }
+                            }
+
+                            &-detail {
+                              position: relative;
+                              float: left;
+                              font-size: 12px;
+                              width: 70%;
+
+                              &__name {
+                                font-weight: bold;
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  &__right {
+                    position: relative;
+                    width: 50%;
+                    text-align: center;
+                    padding-top: 14%;
+
+                    & .content {
+                      &__contact {
+                        & .v-btn {
+                          margin-right: 16px;
+
+                          &:last-child {
+                            margin-right: 0;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        & .list {
+          &-item {
+            position: relative;
+            font-size: 12px;
+            margin-bottom: 8px;
+
+            @include clearfix;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &__title,
+            &__separator,
+            &__value {
+              float: left;
+            }
+
+            &__title {
+              width: 45%;
+            }
+
+            &__separator {
+              width: 10%;
+              padding: 0 8px;
+              text-align: center;
+            }
+
+            &__value {
+              width: 45%;
+              text-align: right;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ************************************ */
