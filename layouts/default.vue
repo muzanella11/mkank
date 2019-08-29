@@ -7,7 +7,7 @@
     >
       <a
         class="header__brand"
-        href="javascript:;"
+        href="/"
       >
         <brand-logo class="brand-image" />
       </a>
@@ -17,6 +17,7 @@
       <a
         class="header__account"
         href="javascript:;"
+        @click="actionAccount"
       >
         <span class="account-name">
           Nick long
@@ -43,12 +44,18 @@
       fixed
       color="#7C0A27"
     >
-      <v-btn value="explore">
+      <v-btn
+        value="explore"
+        @click="changePage('explore')"
+      >
         <span>Explore</span>
         <v-icon>mdi-map-marker</v-icon>
       </v-btn>
 
-      <v-btn value="dashboard">
+      <v-btn
+        value="dashboard"
+        @click="changePage('dashboard')"
+      >
         <span>Dashboard</span>
         <v-icon>mdi-view-dashboard-variant</v-icon>
       </v-btn>
@@ -61,12 +68,17 @@ import { mapState, mapMutations } from 'vuex'
 import * as EXPLORE from '~/store/modules/explore/types'
 import BrandLogo from '~/components/BrandLogo.vue'
 import EnemOverlayLegend from '~/components/overlay/overlaylegend/template.vue'
+import PagesMixins from '~/mixins/pagesMixins'
 
 export default {
   components: {
     BrandLogo,
     EnemOverlayLegend
   },
+
+  mixins: [
+    PagesMixins
+  ],
 
   data () {
     return {
@@ -96,7 +108,15 @@ export default {
   computed: {
     ...mapState({
       showLegend: state => state.explore.showLegend
-    })
+    }),
+
+    pageName () {
+      return this.$route.name
+    }
+  },
+
+  mounted () {
+    this.init()
   },
 
   methods: {
@@ -104,8 +124,24 @@ export default {
       setExploreState: EXPLORE.SET_STATE
     }),
 
+    init () {
+      this.bottomNav = this.pageName
+    },
+
     setShowLegend (val) {
       this.setExploreState({ accessor: 'showLegend', value: val })
+    },
+
+    changePage (page) {
+      if (page === 'explore') {
+        window.location = '/'
+      } else {
+        window.location = '/dashboard'
+      }
+    },
+
+    actionAccount () {
+      window.location = '/logout'
     }
   }
 }

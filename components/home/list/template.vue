@@ -53,7 +53,11 @@
                   v-for="(item, index) in 10"
                   :key="index"
                 >
-                  <enem-card-property />
+                  <a
+                    href="/property/1/detail"
+                  >
+                    <enem-card-property />
+                  </a>
                 </li>
               </ul>
             </li>

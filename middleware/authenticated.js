@@ -1,28 +1,20 @@
-import { formulaCombination } from '~/utils/security'
 import * as Storage from '~/utils/storage'
 
 export const EXCEPT_PAGE = [
   'startup',
   'auth-signin',
   'auth-signup',
-  'dashboard',
-  'search',
-  'calculator',
-  'property-id-detail',
-  'index'
+  'logout'
 ]
 
-export default function ({ route, store, redirect }) {
-  const userData = Storage.getStorage('userData')
-  const dataStorage = userData ? JSON.parse(formulaCombination(userData, 'decode')) : false
+export default function ({ route, redirect }) {
+  const role = Storage.getStorage('role')
 
   if (EXCEPT_PAGE.indexOf(route.name) !== -1) {
     return
   }
 
-  if (!dataStorage.token) {
+  if (!role) {
     redirect('/startup')
-  } else {
-    redirect('/')
   }
 }

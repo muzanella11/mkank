@@ -18,15 +18,27 @@
         @lazyLoadError="handleLazeLoadError"
       >
         <div class="carousel-property-content__item">
-          <enem-card-property :agent-detail="true" />
+          <a
+            href="/property/1/detail"
+          >
+            <enem-card-property :agent-detail="true" />
+          </a>
         </div>
 
         <div class="carousel-property-content__item">
-          <enem-card-property :agent-detail="true" />
+          <a
+            href="/property/1/detail"
+          >
+            <enem-card-property :agent-detail="true" />
+          </a>
         </div>
 
         <div class="carousel-property-content__item">
-          <enem-card-property :agent-detail="true" />
+          <a
+            href="/property/1/detail"
+          >
+            <enem-card-property :agent-detail="true" />
+          </a>
         </div>
       </slick>
     </no-ssr>
