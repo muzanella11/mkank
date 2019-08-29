@@ -52,11 +52,21 @@ export default {
 
   methods: {
     btnAction (title) {
+      const value = title.toLowerCase()
+
       if (this.wizardActive === 1) {
-        window.localStorage.setItem('lang', title.toLowerCase())
+        window.localStorage.setItem('lang', value)
         this.$router.push({ path: 'startup', query: { wizard: 2 } })
       } else if (this.wizardActive === 2) {
-        this.$router.push({ path: 'auth/signin', query: { role: title.toLowerCase() } })
+        window.localStorage.setItem('role', value)
+
+        setTimeout(() => {
+          if (value === 'buyer') {
+            window.location = '/'
+          } else {
+            this.$router.push({ path: 'auth/signin', query: { role: title.toLowerCase() } })
+          }
+        }, 1000)
       }
     }
   }

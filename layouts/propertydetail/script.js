@@ -1,7 +1,12 @@
 import * as SEARCH from '~/store/modules/search/types'
 import { mapState, mapMutations } from 'vuex'
+import PagesMixins from '~/mixins/pagesMixins'
 
 export default {
+  mixins: [
+    PagesMixins
+  ],
+
   data () {
     return {
       isViewMap: false
