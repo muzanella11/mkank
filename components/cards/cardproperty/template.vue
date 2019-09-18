@@ -5,13 +5,20 @@
     >
       <div
         class="image"
-        style="background: url('https://cdn.zeplin.io/5d4dadc08d5c26520b4806e2/assets/C3AE7EF9-3F32-44DE-A35C-D0A658D7C221.png') no-repeat center center / cover"
+        :style="{ background: `url(${propertyImage}) no-repeat center center / cover`}"
       />
-      <div class="image-desc top">
-        House
+      <div
+        v-if="propertyLabel"
+        class="image-desc top"
+      >
+        {{ propertyLabel }}
       </div>
-      <div class="image-desc bottom">
-        300.000 QAR
+
+      <div
+        v-if="propertyPrice"
+        class="image-desc bottom"
+      >
+        {{ propertyPrice }}
       </div>
     </div>
 
@@ -25,7 +32,7 @@
           class="content-left"
         >
           <div class="content-title">
-            Al Muntazah Complex, Doha
+            {{ propertyAddress }}
           </div>
 
           <div class="content-amenities">
@@ -33,19 +40,19 @@
               <li>
                 <v-icon>mdi-hotel</v-icon>
                 <label class="counter">
-                  8
+                  {{ propertyBedroom }}
                 </label>
               </li>
               <li>
                 <v-icon>mdi-shower</v-icon>
                 <label class="counter">
-                  8
+                  {{ propertyBathroom }}
                 </label>
               </li>
               <li>
                 <v-icon>mdi-car</v-icon>
                 <label class="counter">
-                  8
+                  {{ propertyCarpark }}
                 </label>
               </li>
             </ul>

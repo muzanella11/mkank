@@ -1,5 +1,7 @@
 import EnemCardProperty from '~/components/cards/cardproperty/template.vue'
 import EnemFilterSticky from '~/components/filtersticky/template.vue'
+import { mapGetters } from 'vuex'
+import * as TYPES from '~/store/modules/explore/types'
 
 export default {
   components: {
@@ -19,6 +21,21 @@ export default {
     }
   },
 
+  computed: {
+    ...mapGetters({
+      entries: TYPES.GET_ENTRIES_FEATURE
+    })
+  },
+
+  watch: {
+    'entries': {
+      deep: true,
+      handler: function () {
+        this.initMap()
+      }
+    }
+  },
+
   mounted () {
     this.init()
   },
@@ -30,56 +47,15 @@ export default {
 
     initMap () {
       /* eslint-disable */
-      const locations = [
-        [
-          'name location',
-          '-6.1823631',
-          '106.8227809',
-          'yellow'
-        ],
-        [
-          'name location sss',
-          '-6.1831055',
-          '106.8226126',
-          'blue'
-        ],
-        [
-          'name location aaa',
-          '-6.1714854',
-          '106.8292318',
-          'green'
-        ],
-        [
-          'name location bbb',
-          '-6.1767059',
-          '106.828464',
-          'red'
-        ],
-        [
-          'name location ccc',
-          '-6.1763968',
-          '106.8194014',
-          'pink'
-        ],
-        [
-          'name location ddd',
-          '-6.1701812',
-          '106.8219857',
-          'purple'
-        ],
-        [
-          'name location eee',
-          '-6.1667163',
-          '106.8282843',
-          'orange'
-        ]
-      ]
+      if (this.entries.length === 0) {
+        return
+      }
 
       var map = new google.maps.Map(document.getElementById('map'), {
         disableDefaultUI: true,
         center: {
-          lat: -6.1753871,
-          lng: 106.8249641
+          lat: 25.2571207,
+          lng: 51.5514001
         },
         zoom: 15,
         streetViewControl: false
@@ -88,12 +64,11 @@ export default {
       var infowindow = new google.maps.InfoWindow()
       var marker
 
-      locations.forEach((itemLocation, indexLocation) => {
-        let url = "http://maps.google.com/mapfiles/ms/icons/"
-        url += itemLocation[3] + "-dot.png"
+      this.entries.forEach((itemLocation, indexLocation) => {
+        let url = `http://maps.google.com/mapfiles/ms/icons/${itemLocation.color ? itemLocation.color : 'green'}-dot.png`
 
         marker = new google.maps.Marker({
-          position: new google.maps.LatLng(itemLocation[1], itemLocation[2]),
+          position: new google.maps.LatLng(itemLocation.latitude, itemLocation.longitude),
           map: map,
           animation: google.maps.Animation.DROP,
           icon: {
@@ -111,7 +86,7 @@ export default {
 
         new google.maps.event.addListener(marker, 'click', (function(marker) {
           return function() {
-            infowindow.setContent(itemLocation[0]);
+            infowindow.setContent(itemLocation.name);
             infowindow.open(map, marker);
           }
         })(marker));

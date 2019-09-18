@@ -8,27 +8,7 @@ export default {
     },
     entries: {
       type: Object,
-      default: () => ({
-        header: 'Before we start,',
-        subheader: `What's your language preferences ?`,
-        separator: 'Or',
-        wizard: [
-          'Profile',
-          'Verification'
-        ],
-        buttonAction: [
-          {
-            type: 'btn-primary',
-            url: 'javascript:;',
-            title: 'English'
-          },
-          {
-            type: 'btn-secondary',
-            url: 'javascript:;',
-            title: 'Arabic'
-          }
-        ]
-      })
+      default: () => ({})
     }
   },
 
@@ -51,6 +31,34 @@ export default {
 
     buttonSecondary () {
       return this.entries.buttonAction.find(item => item.type === 'btn-secondary') || {}
+    },
+
+    propertyImage () {
+      return this.entries.image && this.entries.image.length > 0 ? this.entries.image[0] : ''
+    },
+
+    propertyLabel () {
+      return this.entries.label ? this.entries.label : ''
+    },
+
+    propertyPrice () {
+      return this.entries.price ? this.entries.price : ''
+    },
+
+    propertyAddress () {
+      return this.entries.address ? this.entries.address : ''
+    },
+
+    propertyBathroom () {
+      return this.entries.bathroom ? this.entries.bathroom : ''
+    },
+
+    propertyBedroom () {
+      return this.entries.bedroom ? this.entries.bedroom : ''
+    },
+
+    propertyCarpark () {
+      return this.entries.carpark ? this.entries.carpark : ''
     }
   },
 
