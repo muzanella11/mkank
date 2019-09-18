@@ -6,11 +6,13 @@ export default {
     return 'anu'
   },
 
-  [EXPLORE.FETCH_LIST_BUYER] ({ commit }) {
+  [EXPLORE.FETCH_LIST_BUYER] ({ commit, state }) {
+    const url = `/listbuyer/${state.filters.status === 'buy' ? 1 : 2}`
+
     return new Promise((resolve, reject) => {
       Axios({
         method: 'get',
-        url: '//admin.mkankapp.com/api/listbuyer'
+        url: `//admin.mkankapp.com/api${url}`
       })
         .then(response => {
           commit(EXPLORE.SET_STATE, { accessor: 'entries', value: response.data.message })

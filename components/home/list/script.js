@@ -1,5 +1,5 @@
 import EnemCardProperty from '~/components/cards/cardproperty/template.vue'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 import * as TYPES from '~/store/modules/explore/types'
 
 export default {
@@ -23,9 +23,22 @@ export default {
   },
 
   computed: {
+    ...mapState({
+      filters: state => state.explore.filters
+    }),
+
     ...mapGetters({
       entries: TYPES.GET_ENTRIES_FEATURE
     })
+  },
+
+  watch: {
+    'filters': {
+      deep: true,
+      handler: function () {
+        this.fetchResource()
+      }
+    }
   },
 
   methods: {

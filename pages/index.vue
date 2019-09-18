@@ -24,6 +24,8 @@ import EnemSearch from '~/components/search/template.vue'
 import EnemHomeList from '~/components/home/list/template.vue'
 import EnemHomeMap from '~/components/home/map/template.vue'
 import EnemFilterSticky from '~/components/filtersticky/template.vue'
+import * as EXPLORETYPES from '~/store/modules/explore/types'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -35,15 +37,15 @@ export default {
 
   data () {
     return {
-      filters: {
-        keywords: '',
-        status: 'buy',
-        type: 'list'
-      }
+      //
     }
   },
 
   computed: {
+    ...mapState({
+      filters: state => state.explore.filters
+    }),
+
     filterType () {
       return this.filters.type
     }
@@ -54,20 +56,26 @@ export default {
   },
 
   methods: {
+    ...mapMutations({
+      setState: EXPLORETYPES.SET_STATE
+    }),
+
     init () {
       this.setFilterType()
     },
 
     setFilter (val) {
       if (val) {
-        this.filters = val
+        this.setState({ accessor: 'filters', value: val })
       }
     },
 
     setFilterType () {
-      this.filters = Object.assign({}, this.filters, {
+      const filters = Object.assign({}, this.filters, {
         type: this.$route.query.type !== undefined ? this.$route.query.type : 'list'
       })
+
+      this.setFilter(filters)
     }
   }
 }
