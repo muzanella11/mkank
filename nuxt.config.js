@@ -1,3 +1,6 @@
+const dotenv = require('dotenv').config()
+const MAPS_KEY = dotenv.parsed.MAPS_KEY
+
 module.exports = {
   mode: 'spa',
   /*
@@ -16,7 +19,7 @@ module.exports = {
     ],
     script: [
       {
-        src: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyA29He5dv2fjHNQt6ithtP8HriCoA8MwH4&libraries=places'
+        src: `https://maps.googleapis.com/maps/api/js?key=${MAPS_KEY}&libraries=places&components=country:QA`
       }
     ]
   },
