@@ -12,8 +12,14 @@
           </div>
 
           <!-- Begin List Property Agent -->
-          <ul class="content-list-property-agent">
-            <li>
+          <ul
+            v-if="entries.length > 0"
+            class="content-list-property-agent"
+          >
+            <li
+              v-for="(itemPropertyAgent, indexPropertyAgent) in entries"
+              :key="indexPropertyAgent"
+            >
               <div class="list-property-agent__title">
                 <v-layout
                   class="title-content"
@@ -26,11 +32,11 @@
                   >
                     <img
                       class="avatar"
-                      src="https://randomuser.me/api/portraits/men/33.jpg"
-                      alt="name"
+                      :src="itemPropertyAgent.image"
+                      :alt="itemPropertyAgent.name"
                     >
                     <label class="account-name">
-                      user ssss
+                      {{ itemPropertyAgent.name }}
                     </label>
                   </v-flex>
 
@@ -41,8 +47,8 @@
                   >
                     <img
                       class="logo"
-                      src="https://cdn.zeplin.io/5d4dadc08d5c26520b4806e2/assets/AB4CC257-F7E3-4E71-8B1A-6025FD4AA4B5.png"
-                      alt="name"
+                      :src="itemPropertyAgent.icon"
+                      :alt="itemPropertyAgent.name"
                     >
                   </v-flex>
                 </v-layout>
@@ -50,13 +56,13 @@
 
               <ul class="list-property-agent__property-list">
                 <li
-                  v-for="(item, index) in 10"
-                  :key="index"
+                  v-for="(itemPropertyList, indexPropertyList) in itemPropertyAgent.list"
+                  :key="indexPropertyList"
                 >
                   <a
-                    href="/property/1/detail"
+                    :href="getPropertyUrl(itemPropertyList)"
                   >
-                    <enem-card-property />
+                    <enem-card-property :entries="itemPropertyList" />
                   </a>
                 </li>
               </ul>
