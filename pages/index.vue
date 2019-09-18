@@ -24,8 +24,8 @@ import EnemSearch from '~/components/search/template.vue'
 import EnemHomeList from '~/components/home/list/template.vue'
 import EnemHomeMap from '~/components/home/map/template.vue'
 import EnemFilterSticky from '~/components/filtersticky/template.vue'
+import { mapActions, mapGetters, mapState, mapMutations } from 'vuex'
 import * as EXPLORETYPES from '~/store/modules/explore/types'
-import { mapState, mapMutations } from 'vuex'
 
 export default {
   components: {
@@ -46,8 +46,25 @@ export default {
       filters: state => state.explore.filters
     }),
 
+    ...mapGetters({
+      entries: EXPLORETYPES.GET_ENTRIES_FEATURE
+    }),
+
     filterType () {
       return this.filters.type
+    }
+  },
+
+  watch: {
+    'filters': {
+      deep: true,
+      handler: function (val) {
+        if (val.type === 'map') {
+          this.fetchMapsBuyer()
+        } else {
+          this.fetchListBuyer()
+        }
+      }
     }
   },
 
@@ -56,6 +73,11 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      fetchListBuyer: EXPLORETYPES.FETCH_LIST_BUYER,
+      fetchMapsBuyer: EXPLORETYPES.FETCH_MAPS_BUYER
+    }),
+
     ...mapMutations({
       setState: EXPLORETYPES.SET_STATE
     }),
