@@ -19,7 +19,7 @@ export default {
 
   methods: {
     backStep () {
-      this.$router.push({ path: '/dashboard' })
+      this.$router.go(-1)
     },
 
     calculatorCountPage () {
