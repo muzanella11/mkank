@@ -53,7 +53,19 @@
       <div class="content-action">
         <v-layout wrap>
           <v-flex
-            xs12
+            xs6
+            sm6
+          >
+            <v-btn
+              depressed
+              class="action__button previous"
+              @click="btnAction('prev')"
+            >
+              Previous Step
+            </v-btn>
+          </v-flex>
+          <v-flex
+            xs6
             sm6
           >
             <v-btn
@@ -61,6 +73,7 @@
               color="primary"
               class="action__button"
               width="100%"
+              @click="btnAction('preview')"
             >
               Next Step
             </v-btn>

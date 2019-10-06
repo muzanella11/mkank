@@ -64,7 +64,7 @@ export default {
           if (value === 'buyer') {
             window.location = '/'
           } else {
-            window.location = `/startup?role=${title.toLowerCase()}`
+            window.location = `/auth/signin?role=${title.toLowerCase()}`
           }
         }, 1000)
       }

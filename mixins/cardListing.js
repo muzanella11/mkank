@@ -1,4 +1,5 @@
 import EnemCards from '~/components/cards/carddefault/template.vue'
+import QueryString from 'querystring'
 
 export default {
   props: {
@@ -56,18 +57,31 @@ export default {
     },
 
     transformValue () {
-      return `translateX(-${this.wizardActive > 1 ? (parseInt(this.wizardActive) - 1) * 25 : 0}%)`
+      return `translateX(-${this.wizardActive > 1 ? (parseInt(this.wizardActive) - 1) * (100 / this.entries.wizard.length) : 0}%)`
     }
   },
 
   methods: {
-    btnAction (title) {
-      if (this.wizardActive === 1) {
-        window.localStorage.setItem('lang', title.toLowerCase())
-        this.$router.push({ path: 'startup', query: { wizard: 2 } })
-      } else if (this.wizardActive === 2) {
-        this.$router.push({ path: 'auth/signin', query: { role: title.toLowerCase() } })
+    btnAction (action) {
+      let queryStringRaw = QueryString.parse(window.location.search.split('?')[1])
+
+      if (action === 'next') {
+        queryStringRaw = Object.assign({}, queryStringRaw, {
+          wizard: this.wizardActive + 1
+        })
+      } else if (action === 'prev') {
+        queryStringRaw = Object.assign({}, queryStringRaw, {
+          wizard: this.wizardActive - 1
+        })
+      } else if (action === 'preview') {
+        window.location = `/listing/preview`
+      } else {
+        return
       }
+
+      const stringifyUrl = QueryString.stringify(queryStringRaw)
+
+      window.location = `${window.location.pathname}?${stringifyUrl}`
     }
   }
 }

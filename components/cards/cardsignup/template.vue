@@ -4,25 +4,22 @@
       <div
         class="c-wizard-diamond"
       >
-        <ul class="wizard-diamond__list">
-          <li>
+        <ul
+          class="wizard-diamond__list"
+          :style="{transform: transformValue}"
+        >
+          <li
+            v-for="(itemWizard, indexWizard) in entries.wizard"
+            :key="indexWizard"
+            :class="[indexWizard + 1 === wizardActive ? 'active' : '']"
+          >
             <div class="c-diamond">
               <span class="text">
-                1
+                {{ indexWizard + 1 }}
               </span>
             </div>
             <div class="list__wording text-small text-grey">
-              Title
-            </div>
-          </li>
-          <li>
-            <div class="c-diamond">
-              <span class="text">
-                1
-              </span>
-            </div>
-            <div class="list__wording text-small text-grey">
-              Title
+              {{ itemWizard }}
             </div>
           </li>
         </ul>
@@ -45,6 +42,8 @@
             wrap
           >
             <v-flex
+              v-for="(itemSellerType, indexSellerType) in listSellerType"
+              :key="indexSellerType"
               class="wrapper-button__item"
               xs6
               sm6
@@ -52,23 +51,11 @@
               <v-btn
                 depressed
                 class="seller-type__button"
+                :class="[entry.sellerType === itemSellerType.toLowerCase() ? 'active' : '']"
                 width="100%"
+                @click="setSellerType(itemSellerType.toLowerCase())"
               >
-                Next Step
-              </v-btn>
-            </v-flex>
-
-            <v-flex
-              class="wrapper-button__item"
-              xs6
-              sm6
-            >
-              <v-btn
-                depressed
-                class="seller-type__button"
-                width="100%"
-              >
-                Next Step
+                {{ itemSellerType }}
               </v-btn>
             </v-flex>
           </v-layout>
@@ -80,6 +67,7 @@
             sm6
           >
             <v-text-field
+              v-model="entry.name"
               outlined
               label="Name"
             />
@@ -92,6 +80,7 @@
             sm6
           >
             <v-text-field
+              v-model="entry.email"
               outlined
               label="Email"
             />
@@ -105,16 +94,10 @@
             xs12
             sm6
           >
-            <enem-date-picker />
-          </v-flex>
-
-          <v-flex
-            xs12
-            sm6
-          >
-            <v-text-field
-              outlined
-              label="Phonenumber"
+            <enem-date-picker
+              placeholder="Birth Date"
+              :value="entry.birthDate"
+              @input="setBirthDate"
             />
           </v-flex>
 
@@ -123,6 +106,18 @@
             sm6
           >
             <v-text-field
+              v-model="entry.phoneNumber"
+              outlined
+              label="Phone Number"
+            />
+          </v-flex>
+
+          <v-flex
+            xs12
+            sm6
+          >
+            <v-text-field
+              v-model="entry.qatarId"
               outlined
               label="Qatar ID"
             />
@@ -133,6 +128,7 @@
             sm6
           >
             <v-text-field
+              v-model="entry.address"
               outlined
               label="Address"
             />
@@ -159,6 +155,7 @@
               color="primary"
               class="action__button"
               width="100%"
+              @click="btnAction"
             >
               Next Step
             </v-btn>
