@@ -29,7 +29,7 @@ export default {
       if (this.stepActive > 1) {
         this.$router.go(-1)
       } else {
-        this.$router.push({ path: '/startup' })
+        window.location = '/startup'
       }
     }
   }

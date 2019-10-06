@@ -23,7 +23,7 @@ export default {
     },
 
     calculatorCountPage () {
-      this.$router.push({ path: '/calculator' })
+      window.location = 'calculator'
     },
 
     setDialogPropertyInformation (val) {

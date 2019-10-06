@@ -17,7 +17,7 @@ export default {
 
   methods: {
     backStep () {
-      this.$router.push({ path: '/dashboard' })
+      window.location = '/dashboard'
     }
   }
 }

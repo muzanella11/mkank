@@ -43,9 +43,11 @@
       v-model="bottomNav"
       fixed
       color="#7C0A27"
+      class="c-bottom-navigation"
     >
       <v-btn
         value="explore"
+        class="bottom-navigation__button"
         @click="changePage('explore')"
       >
         <span>Explore</span>
@@ -54,6 +56,7 @@
 
       <v-btn
         value="dashboard"
+        class="bottom-navigation__button"
         @click="changePage('dashboard')"
       >
         <span>Dashboard</span>

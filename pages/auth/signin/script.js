@@ -20,7 +20,7 @@ export default {
 
   methods: {
     backStep () {
-      this.$router.push({ path: 'startup' })
+      window.location = '/startup'
     }
   }
 }

@@ -1,4 +1,4 @@
-export default {
+export default () => ({
   layoutSettings: {
     titleApps: null,
     drawer: null,
@@ -17,4 +17,4 @@ export default {
     offline: 'Anda berada pada mode offline',
     online: 'Anda telah terhubung kembali'
   }
-}
+})

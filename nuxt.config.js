@@ -1,8 +1,10 @@
 const dotenv = require('dotenv').config()
 const MAPS_KEY = dotenv.parsed.MAPS_KEY
+const dummyData = require('./static/dummy.json')
 
 module.exports = {
   mode: 'spa',
+  base: '/',
   /*
   ** Headers of the page
   */
@@ -11,7 +13,8 @@ module.exports = {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'theme-color', content: '#7C0A27' },
+      { name: 'viewport', content: 'width=device-width,initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
@@ -42,7 +45,7 @@ module.exports = {
   /*
   ** Nuxt.js dev-modules
   */
-  devModules: [
+  buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify'
@@ -65,7 +68,6 @@ module.exports = {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
-    customVariables: ['~/assets/scss/libs/vuetify/variables.scss'],
     theme: {
       themes: {
         light: {
@@ -78,7 +80,14 @@ module.exports = {
   router: {
     middleware: [
       'authenticated'
-    ]
+    ],
+    extendRoutes (routes, resolve) {
+      routes.push({
+        name: 'pagesNotFound',
+        path: '*',
+        component: resolve(__dirname, 'pages/errors/404.vue')
+      })
+    }
   },
   /*
   ** Build configuration
@@ -88,6 +97,19 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+    }
+  },
+  generate: {
+    routes: async () => {
+      const property = new Promise((resolve, reject) => {
+        const rawData = dummyData.filter(itemDummy => itemDummy.type === 'property')
+        resolve(rawData.map(itemRawData => `/property/${itemRawData.id}/detail`))
+        reject(rawData.map(itemRawData => `/property/${itemRawData.id}/detail`))
+      })
+
+      return Promise.all([property]).then(values => {
+        return values.join().split(',')
+      })
     }
   }
 }
