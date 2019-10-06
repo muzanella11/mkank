@@ -54,9 +54,9 @@ export default {
     btnAction (title) {
       if (this.wizardActive === 1) {
         window.localStorage.setItem('lang', title.toLowerCase())
-        this.$router.push({ path: '/startup', query: { wizard: 2 } })
+        window.location = `/startup?wizard=2`
       } else if (this.wizardActive === 2) {
-        this.$router.push({ path: '/auth/signin', query: { role: title.toLowerCase() } })
+        window.location = `/auth/signin?role=${title.toLowerCase()}`
       }
     }
   }

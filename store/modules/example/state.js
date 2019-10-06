@@ -1,5 +1,5 @@
 // import * as GLOBAL from './types'
 
-export default {
+export default () => ({
   entries: []
-}
+})

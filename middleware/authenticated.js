@@ -4,7 +4,8 @@ export const EXCEPT_PAGE = [
   'startup',
   'auth-signin',
   'auth-signup',
-  'logout'
+  'logout',
+  'pagesNotFound'
 ]
 
 export default function ({ route, redirect }) {

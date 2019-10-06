@@ -56,7 +56,7 @@ export default {
 
       if (this.wizardActive === 1) {
         window.localStorage.setItem('lang', value)
-        this.$router.push({ path: 'startup', query: { wizard: 2 } })
+        window.location = '/startup?wizard=2'
       } else if (this.wizardActive === 2) {
         window.localStorage.setItem('role', value)
 
@@ -64,7 +64,7 @@ export default {
           if (value === 'buyer') {
             window.location = '/'
           } else {
-            this.$router.push({ path: 'auth/signin', query: { role: title.toLowerCase() } })
+            window.location = `/startup?role=${title.toLowerCase()}`
           }
         }, 1000)
       }

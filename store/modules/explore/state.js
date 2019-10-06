@@ -1,6 +1,6 @@
 // import * as GLOBAL from './types'
 
-export default {
+export default () => ({
   entries: [],
   showLegend: false,
   filters: {
@@ -8,4 +8,4 @@ export default {
     status: 'buy',
     type: 'list'
   }
-}
+})
