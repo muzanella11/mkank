@@ -1,4 +1,5 @@
 import EnemCards from './../carddefault/template.vue'
+import QueryString from 'querystring'
 
 export default {
   props: {
@@ -33,7 +34,11 @@ export default {
   },
 
   data () {
-    return {}
+    return {
+      entry: {
+        code: ''
+      }
+    }
   },
 
   computed: {
@@ -47,17 +52,22 @@ export default {
 
     buttonSecondary () {
       return this.entries.buttonAction.find(item => item.type === 'btn-secondary') || {}
+    },
+
+    transformValue () {
+      return `translateX(-${this.wizardActive > 1 ? (parseInt(this.wizardActive) - 1) * (100 / this.entries.wizard.length) : 0}%)`
     }
   },
 
   methods: {
-    btnAction (title) {
-      if (this.wizardActive === 1) {
-        window.localStorage.setItem('lang', title.toLowerCase())
-        this.$router.push({ path: '/startup', query: { wizard: 2 } })
-      } else if (this.wizardActive === 2) {
-        this.$router.push({ path: '/auth/signin', query: { role: title.toLowerCase() } })
-      }
+    btnAction () {
+      const queryStringRaw = QueryString.parse(window.location.search.split('?')[1])
+
+      delete queryStringRaw.wizard
+
+      const stringifyUrl = QueryString.stringify(queryStringRaw)
+
+      window.location = `/auth/signin?${stringifyUrl}`
     }
   }
 }

@@ -334,6 +334,7 @@
               color="primary"
               class="action__button"
               width="100%"
+              @click="btnAction('next')"
             >
               Next Step
             </v-btn>

@@ -4,25 +4,22 @@
       <div
         class="c-wizard-diamond"
       >
-        <ul class="wizard-diamond__list">
-          <li>
+        <ul
+          class="wizard-diamond__list"
+          :style="{transform: transformValue}"
+        >
+          <li
+            v-for="(itemWizard, indexWizard) in entries.wizard"
+            :key="indexWizard"
+            :class="[indexWizard + 1 === wizardActive ? 'active' : '']"
+          >
             <div class="c-diamond">
               <span class="text">
-                1
+                {{ indexWizard + 1 }}
               </span>
             </div>
             <div class="list__wording text-small text-grey">
-              Title
-            </div>
-          </li>
-          <li>
-            <div class="c-diamond">
-              <span class="text">
-                1
-              </span>
-            </div>
-            <div class="list__wording text-small text-grey">
-              Title
+              {{ itemWizard }}
             </div>
           </li>
         </ul>
@@ -45,6 +42,7 @@
             sm6
           >
             <v-text-field
+              v-model="entry.code"
               outlined
               label="Code"
             />
@@ -63,6 +61,7 @@
               color="primary"
               class="action__button"
               width="100%"
+              @click="btnAction"
             >
               Confirm
             </v-btn>

@@ -103,6 +103,7 @@
             <v-btn
               depressed
               class="action__button previous"
+              @click="btnAction('prev')"
             >
               Previous Step
             </v-btn>
@@ -116,6 +117,7 @@
               color="primary"
               class="action__button"
               width="100%"
+              @click="btnAction('next')"
             >
               Next Step
             </v-btn>

@@ -1,5 +1,6 @@
 import EnemCards from './../carddefault/template.vue'
 import EnemDatePicker from './../../inputs/Datepicker/template.vue'
+import QueryString from 'querystring'
 
 export default {
   props: {
@@ -35,7 +36,21 @@ export default {
   },
 
   data () {
-    return {}
+    return {
+      listSellerType: [
+        'Corporate',
+        'Individual'
+      ],
+      entry: {
+        sellerType: '',
+        name: '',
+        email: '',
+        birthDate: '',
+        phoneNumber: '',
+        qatarId: '',
+        address: ''
+      }
+    }
   },
 
   computed: {
@@ -53,17 +68,38 @@ export default {
 
     buttonSecondary () {
       return this.entries.buttonAction.find(item => item.type === 'btn-secondary') || {}
+    },
+
+    transformValue () {
+      return `translateX(-${this.wizardActive > 1 ? (parseInt(this.wizardActive) - 1) * (100 / this.entries.wizard.length) : 0}%)`
     }
   },
 
   methods: {
-    btnAction (title) {
+    btnAction () {
+      let queryStringRaw = QueryString.parse(window.location.search.split('?')[1])
+
       if (this.wizardActive === 1) {
-        window.localStorage.setItem('lang', title.toLowerCase())
-        this.$router.push({ path: 'startup', query: { wizard: 2 } })
+        queryStringRaw = Object.assign({}, queryStringRaw, {
+          wizard: this.wizardActive + 1
+        })
       } else if (this.wizardActive === 2) {
-        this.$router.push({ path: 'auth/signin', query: { role: title.toLowerCase() } })
+        queryStringRaw = Object.assign({}, queryStringRaw, {
+          wizard: this.wizardActive - 1
+        })
       }
+
+      const stringifyUrl = QueryString.stringify(queryStringRaw)
+
+      window.location = `${window.location.pathname}?${stringifyUrl}`
+    },
+
+    setSellerType (value) {
+      this.entry.sellerType = value
+    },
+
+    setBirthDate (value) {
+      this.entry.birthDate = value
     }
   }
 }

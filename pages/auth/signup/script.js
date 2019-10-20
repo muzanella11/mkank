@@ -19,14 +19,14 @@ export default {
       return role === undefined ? 'buyer' : role.toLowerCase()
     },
 
-    stepActive () {
-      return this.$route.query.step === undefined ? 1 : parseInt(this.$route.query.step)
+    wizardActive () {
+      return this.$route.query.wizard === undefined ? 1 : parseInt(this.$route.query.wizard)
     }
   },
 
   methods: {
     backStep () {
-      if (this.stepActive > 1) {
+      if (this.wizardActive > 1) {
         this.$router.go(-1)
       } else {
         window.location = '/startup'

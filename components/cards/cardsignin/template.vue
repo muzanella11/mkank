@@ -2,7 +2,7 @@
   <enem-cards class="c-card-authentication signin">
     <div class="authentication__content">
       <div class="content-header text-header">
-        Welcome Buyer
+        Welcome {{ roleActive }}
       </div>
 
       <div class="content-subheader text-subheader">
@@ -18,6 +18,7 @@
             sm6
           >
             <v-text-field
+              v-model="entry.email"
               outlined
               label="Email"
               prepend-inner-icon="mdi-email-outline"
@@ -29,6 +30,7 @@
             sm6
           >
             <v-text-field
+              v-model="entry.email"
               outlined
               label="Password"
               type="password"
@@ -57,6 +59,7 @@
               color="primary"
               class="action__button"
               width="100%"
+              @click="btnAction"
             >
               Login
             </v-btn>

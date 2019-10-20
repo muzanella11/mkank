@@ -9,7 +9,6 @@
         v-model="modal"
         :return-value.sync="date"
         persistent
-        full-width
         width="290px"
       >
         <template v-slot:activator="{ on }">
