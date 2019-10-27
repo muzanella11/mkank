@@ -31,88 +31,115 @@
         </div>
 
         <div class="content-form">
-          <v-layout
-            class="content-form__wrapper"
-            wrap
-          >
-            <v-flex
-              class="content-form__item"
-              xs12
-              sm6
+          <ul class="property-list">
+            <template
+              v-if="entry.length > 0"
             >
-              <v-text-field
-                outlined
-                label="Property Price"
-              />
-            </v-flex>
-          </v-layout>
+              <li
+                v-for="(itemEntry, indexEntry) in entry"
+                :key="indexEntry"
+              >
+                <enem-cards
+                  class="property-list__card"
+                >
+                  <enem-button-option
+                    title="Property Type"
+                    :entries="question.propertyType"
+                    :value="itemEntry.propertyType"
+                    @input="setPropertyType(indexEntry, $event)"
+                  />
 
-          <v-layout
-            class="content-form__wrapper"
-            wrap
-          >
-            <v-flex
-              class="content-form__item"
-              xs8
-              sm6
-            >
-              <v-text-field
-                outlined
-                label="Downpayment"
-              />
-            </v-flex>
+                  <v-layout
+                    class="content-form__wrapper"
+                    wrap
+                  >
+                    <v-flex
+                      v-if="itemEntry.propertyType !== 'sale'"
+                      class="content-form__item"
+                      xs12
+                      sm12
+                    >
+                      <v-text-field
+                        outlined
+                        label="Price Per Month"
+                      />
+                    </v-flex>
 
-            <v-flex
-              class="content-form__item or"
-              xs2
-              sm6
-            >
-              or
-            </v-flex>
+                    <v-flex
+                      v-if="itemEntry.propertyType !== 'rent'"
+                      class="content-form__item"
+                      xs12
+                      sm12
+                    >
+                      <v-text-field
+                        outlined
+                        label="Total Price"
+                      />
+                    </v-flex>
 
-            <v-flex
-              class="content-form__item"
-              xs2
-              sm6
-            >
-              <v-text-field
-                outlined
-                label="%"
-              />
-            </v-flex>
-          </v-layout>
+                    <v-flex
+                      v-if="itemEntry.propertyType !== 'rent'"
+                      class="content-form__item"
+                      xs12
+                      sm12
+                    >
+                      <v-switch
+                        v-model="itemEntry.divideProfitPerMonth"
+                        color="primary"
+                        label="Divide profit per month"
+                      />
+                    </v-flex>
 
-          <v-layout
-            class="content-form__wrapper"
-            wrap
-          >
-            <v-flex
-              class="content-form__item"
-              xs12
-              sm6
-            >
-              <v-text-field
-                outlined
-                label="Interest Rate"
-              />
-            </v-flex>
-          </v-layout>
+                    <v-flex
+                      class="content-form__item"
+                      xs12
+                      sm12
+                    >
+                      <v-text-field
+                        v-model="itemEntry.duration"
+                        :disabled="!itemEntry.divideProfitPerMonth && itemEntry.propertyType !== 'rent'"
+                        outlined
+                        label="Duration (Month)"
+                      />
+                    </v-flex>
+                  </v-layout>
 
-          <v-layout
-            class="content-form__wrapper"
-            wrap
-          >
-            <v-flex
-              class="content-form__item"
-              xs12
-              sm6
-            >
-              <v-text-field
+                  <v-layout
+                    wrap
+                    class="card-action"
+                  >
+                    <v-flex
+                      sm12
+                      xs12
+                      class="wrapper-button"
+                    >
+                      <v-btn
+                        outlined
+                        class="button"
+                        @click="removeProperty(indexEntry)"
+                      >
+                        Remove Property
+                      </v-btn>
+                    </v-flex>
+                  </v-layout>
+                </enem-cards>
+              </li>
+            </template>
+
+            <li v-else>
+              Sorry we not found your property :(
+            </li>
+
+            <li class="action__add-property wrapper-button">
+              <v-btn
                 outlined
-                label="Loan Term"
-              />
-            </v-flex>
-          </v-layout>
+                class="button"
+                @click="addProperty"
+              >
+                Add Property
+              </v-btn>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
