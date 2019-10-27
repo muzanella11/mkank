@@ -1,0 +1,37 @@
+/******************************************
+  Some tips for creating blocks / modules :
+  - Add `c` prefix before the name of block or modules
+  - Or Just copy paste this structure of styling code into your new block or components styling file
+  - Dont forget to register your block or modules into `_modules.scss`
+******************************************/
+/** This Place For Block Button Option **/
+.#{$namespace} {
+  & .c-button-option {
+    & .button-option {
+      &__wrapper-button {
+        border: 1px solid #C2C2C2;
+        border-radius: 2px;
+
+        & .button {
+          font-size: 12px;
+          text-transform: none !important;
+
+          &.active,
+          &:hover,
+          &::before {
+            background-color: #FFE0BB !important;
+            color: #9B5400 !important;
+            text-transform: none !important;
+            border-radius: 0 1px 1px 0 !important;
+          }
+        }
+      }
+
+      &__title {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+/* ************************************ */

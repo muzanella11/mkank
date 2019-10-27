@@ -55,11 +55,10 @@
 
               &-per-month {
                 position: relative;
+                font-weight: bold;
 
                 & .price {
                   color: $color-secondary;
-                  font-size: 16px;
-                  font-weight: bold;
                 }
               }
             }
@@ -71,6 +70,7 @@
             & .content-form {
               &__wrapper {
                 position: relative;
+                margin-top: 32px;
               }
 
               &__item {
@@ -92,6 +92,68 @@
             //
           }
         }
+      }
+    }
+
+    & .property-list {
+      position: relative;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 24px;
+
+      & li {
+        margin-bottom: 24px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &__card {
+        position: relative;
+        padding: 16px;
+        padding-bottom: 0;
+
+        & .card {
+          &-action {
+            position: relative;
+            padding: 16px 0;
+          }
+        }
+      }
+    }
+
+    & .action {
+      &__add-property {
+        position: relative;
+        height: 36px;
+
+        &::after {
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          background: #EEE;
+          content: '';
+          top: 50%;
+        }
+      }
+    }
+
+    & .wrapper-button {
+      position: relative;
+      width: 100%;
+      height: 36px;
+
+      & .button {
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        background: white;
+        border-color: $color-primary;
+        color: $color-primary;
       }
     }
   }

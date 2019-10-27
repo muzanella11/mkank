@@ -24,11 +24,59 @@
           class="content__title"
         >
           <div class="content__counter">
+            <div class="counter-total-loan no-border">
+              <v-layout
+                wrap
+              >
+                <v-flex
+                  sm6
+                  xs7
+                >
+                  Total Sale Profit
+                </v-flex>
+                <v-flex
+                  sm6
+                  xs5
+                >
+                  <span class="price">3000 QAR</span>
+                </v-flex>
+              </v-layout>
+            </div>
             <div class="counter-total-loan">
-              Total Loan <span class="price">3000 QAR</span>
+              <v-layout
+                wrap
+              >
+                <v-flex
+                  sm6
+                  xs7
+                >
+                  Total Rent Profit
+                </v-flex>
+                <v-flex
+                  sm6
+                  xs5
+                >
+                  <span class="price">3000 QAR</span>
+                </v-flex>
+              </v-layout>
             </div>
             <div class="counter-per-month">
-              <span class="price">3000 QAR</span> / Month
+              <v-layout
+                wrap
+              >
+                <v-flex
+                  sm6
+                  xs7
+                >
+                  Total Profit
+                </v-flex>
+                <v-flex
+                  sm6
+                  xs5
+                >
+                  <span class="price">3000 QAR</span>
+                </v-flex>
+              </v-layout>
             </div>
           </div>
         </v-flex>
