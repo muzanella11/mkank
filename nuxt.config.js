@@ -1,6 +1,6 @@
 const dotenv = require('dotenv').config()
 const MAPS_KEY = dotenv.parsed.MAPS_KEY
-const dummyData = require('./static/dummy.json')
+// const dummyData = require('./static/dummy.json')
 
 module.exports = {
   mode: 'spa',
@@ -98,18 +98,20 @@ module.exports = {
     */
     extend (config, ctx) {
     }
-  },
-  generate: {
-    routes: async () => {
-      const property = new Promise((resolve, reject) => {
-        const rawData = dummyData.filter(itemDummy => itemDummy.type === 'property')
-        resolve(rawData.map(itemRawData => `/property/${itemRawData.id}/detail`))
-        reject(rawData.map(itemRawData => `/property/${itemRawData.id}/detail`))
-      })
-
-      return Promise.all([property]).then(values => {
-        return values.join().split(',')
-      })
-    }
   }
+  // generate: {
+  //   routes: async (ab, cd) => {
+  //     console.info('oyyy ab : ', ab)
+  //     console.info('oyyy cd : ', cd)
+  //     const property = new Promise((resolve, reject) => {
+  //       const rawData = dummyData.filter(itemDummy => itemDummy.type === 'property')
+  //       resolve(rawData.map(itemRawData => `/property/${itemRawData.id}/detail`))
+  //       reject(rawData.map(itemRawData => `/property/${itemRawData.id}/detail`))
+  //     })
+
+  //     return Promise.all([property]).then(values => {
+  //       return values.join().split(',')
+  //     })
+  //   }
+  // }
 }
