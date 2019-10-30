@@ -32,7 +32,9 @@
       </v-btn>
     </v-app-bar>
 
-    <enem-card-property-detail />
+    <enem-card-property-detail
+      :entries="propertyDetail"
+    />
 
     <section class="property-detail__section section--calculator">
       <div class="section-content">
@@ -52,34 +54,20 @@
       </div>
       <div class="section-content">
         <ul class="content__list">
-          <li class="list-item">
+          <li
+            v-for="(itemFacility, indexFacility) in propertyFacilites"
+            :key="indexFacility"
+            class="list-item"
+          >
             <v-chip
               color="secondary"
               label
               text-color="white"
             >
-              Pool
+              {{ itemFacility.name }}
             </v-chip>
           </li>
-          <li class="list-item">
-            <v-chip
-              color="secondary"
-              label
-              text-color="white"
-            >
-              Internet
-            </v-chip>
-          </li>
-          <li class="list-item">
-            <v-chip
-              color="secondary"
-              label
-              text-color="white"
-            >
-              Air Conditioner
-            </v-chip>
-          </li>
-          <li class="list-item">
+          <!-- <li class="list-item">
             <v-btn
               small
               outlined
@@ -87,7 +75,7 @@
             >
               See All
             </v-btn>
-          </li>
+          </li> -->
         </ul>
       </div>
     </section>
@@ -104,21 +92,25 @@
             </v-icon>
           </div>
           <div class="location-content">
-            West Bay, Doha, Al Tuwaim Street، الدوحة
+            {{ propertyInformation.location }}
           </div>
         </div>
 
         <div class="content__property-information">
           <ul class="property-information__list">
-            <li class="list-item">
+            <li
+              v-for="(itemInformation, indexInformation) in propertyInformation.details"
+              :key="indexInformation"
+              class="list-item"
+            >
               <div class="list-item__title">
-                Title
+                {{ itemInformation.name }}
               </div>
               <div class="list-item__separator">
                 :
               </div>
               <div class="list-item__value">
-                Value
+                {{ itemInformation.status }}
               </div>
             </li>
           </ul>
@@ -143,7 +135,10 @@
       </div>
       <div class="section-content">
         <div class="content__similar">
-          <div class="similar-map">
+          <div
+            id="similarMap"
+            class="similar-map"
+          >
             map
           </div>
 
@@ -179,24 +174,24 @@
         <div class="content__left">
           <div class="content__agent-logo">
             <img
-              src="https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2"
+              :src="propertyOwner.icon"
               alt="agent-logo"
             >
           </div>
           <div class="content__agent-detail">
             <div class="agent-avatar">
               <img
-                src="https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2"
+                :src="propertyOwner.image"
                 alt="agent-logo"
               >
             </div>
 
             <div class="agent-detail">
               <div class="agent-detail__name">
-                Kelly Rowland
+                {{ propertyOwner.name }}
               </div>
               <div class="agent-detail__date-join">
-                Since 01 Jan 2019
+                {{ dateJoin(propertyOwner.date_join) }}
               </div>
             </div>
           </div>

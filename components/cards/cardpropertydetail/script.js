@@ -8,27 +8,9 @@ export default {
     },
     entries: {
       type: Object,
-      default: () => ({
-        header: 'Before we start,',
-        subheader: `What's your language preferences ?`,
-        separator: 'Or',
-        wizard: [
-          'Profile',
-          'Verification'
-        ],
-        buttonAction: [
-          {
-            type: 'btn-primary',
-            url: 'javascript:;',
-            title: 'English'
-          },
-          {
-            type: 'btn-secondary',
-            url: 'javascript:;',
-            title: 'Arabic'
-          }
-        ]
-      })
+      default: () => {
+        return {}
+      }
     }
   },
 
@@ -51,6 +33,14 @@ export default {
 
     buttonSecondary () {
       return this.entries.buttonAction.find(item => item.type === 'btn-secondary') || {}
+    },
+
+    backgroundStyle () {
+      return `url(${this.entries.image[0]}) no-repeat center center / cover`
+    },
+
+    propertyImage () {
+      return this.entries.image !== undefined ? this.entries.image : ''
     }
   },
 

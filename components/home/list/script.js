@@ -30,7 +30,7 @@ export default {
 
   methods: {
     getPropertyUrl (item) {
-      return item.id ? `/property/${item.id}/detail` : 'javascript:;'
+      return item.id ? `/property/detail?q=${item.id}` : 'javascript:;'
     }
   }
 }

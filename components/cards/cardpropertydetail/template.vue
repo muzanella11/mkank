@@ -5,10 +5,10 @@
     >
       <div
         class="image"
-        style="background: url('https://cdn.zeplin.io/5d4dadc08d5c26520b4806e2/assets/C3AE7EF9-3F32-44DE-A35C-D0A658D7C221.png') no-repeat center center / cover"
+        :style="{ background: `url('${propertyImage}') no-repeat center center / cover`}"
       />
       <div class="image-desc bottom">
-        300.000 QAR
+        {{ entries.price }}
       </div>
     </div>
 
@@ -22,7 +22,7 @@
           class="content-left"
         >
           <div class="content-title">
-            Al Muntazah Complex, Doha
+            {{ entries.title }}
           </div>
 
           <div class="content-amenities">
@@ -30,19 +30,19 @@
               <li>
                 <v-icon>mdi-hotel</v-icon>
                 <label class="counter">
-                  8
+                  {{ entries.bedroom }}
                 </label>
               </li>
               <li>
                 <v-icon>mdi-shower</v-icon>
                 <label class="counter">
-                  8
+                  {{ entries.bathroom }}
                 </label>
               </li>
               <li>
                 <v-icon>mdi-car</v-icon>
                 <label class="counter">
-                  8
+                  {{ entries.carpark }}
                 </label>
               </li>
             </ul>
@@ -57,19 +57,19 @@
         >
           <div class="content-right__avatar">
             <img
-              src="https://randomuser.me/api/portraits/men/33.jpg"
+              :src="entries.owner.image"
               alt="image"
               class="avatar"
             >
           </div>
 
           <div class="content-right__title">
-            Nick long
+            {{ entries.owner.name }}
           </div>
 
           <div class="content-right__agent">
             <img
-              src="https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2"
+              :src="entries.owner.icon"
               alt="agent"
               class="agent"
             >
