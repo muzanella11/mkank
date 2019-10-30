@@ -5,7 +5,7 @@
     >
       <div
         class="image"
-        :style="{ background: `url('${propertyImage}') no-repeat center center / cover`}"
+        :style="{ background: `url('${propertyImage[0]}') no-repeat center center / cover`}"
       />
       <div class="image-desc bottom">
         {{ entries.price }}
