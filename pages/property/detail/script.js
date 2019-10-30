@@ -129,7 +129,7 @@ export default {
     },
 
     calculatorCountPage () {
-      window.location = 'calculator'
+      window.location = '/calculator'
     },
 
     setDialogPropertyInformation (val) {
