@@ -32,6 +32,21 @@
         Enquiry
       </v-btn>
     </v-bottom-navigation>
+
+    <v-snackbar
+      v-model="snackbarOptions.isShown"
+      :top="true"
+      :color="snackbarOptions.color"
+    >
+      {{ snackbarOptions.text }}
+      <v-btn
+        :color="snackbarOptions.buttonColor"
+        text
+        @click="snackbarOptions.isShown = false"
+      >
+        Close
+      </v-btn>
+    </v-snackbar>
   </v-app>
 </template>
 
