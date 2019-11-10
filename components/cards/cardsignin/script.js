@@ -1,5 +1,8 @@
 import EnemCards from './../carddefault/template.vue'
 import QueryString from 'querystring'
+import { mapActions, mapMutations } from 'vuex'
+import * as AUTHTPYES from '~/store/modules/auth/types'
+import * as TYPES from '~/store/types'
 
 export default {
   props: {
@@ -61,7 +64,57 @@ export default {
   },
 
   methods: {
-    btnAction () {
+    ...mapActions({
+      fetchSignin: AUTHTPYES.FETCH_SIGNIN
+    }),
+
+    ...mapMutations({
+      setStateGlobal: TYPES.SET_STATE
+    }),
+
+    btnAction (action) {
+      if (action === 'signin') {
+        this.submit()
+      } else {
+        this.signup()
+      }
+    },
+
+    signup () {
+      const query = this.$route.query
+
+      this.$router.push({ path: '/auth/signup', query: query })
+    },
+
+    async submit () {
+      try {
+        await this.fetchSignin(this.entry)
+
+        this.setStateGlobal({
+          accessor: 'snackbarOptions',
+          value: {
+            text: 'Success signin',
+            color: 'success',
+            buttonColor: 'white',
+            isShown: true
+          }
+        })
+
+        this.goToDashboard()
+      } catch (error) {
+        this.setStateGlobal({
+          accessor: 'snackbarOptions',
+          value: {
+            text: error.message,
+            color: 'error',
+            buttonColor: 'white',
+            isShown: true
+          }
+        })
+      }
+    },
+
+    goToDashboard () {
       let queryStringRaw = QueryString.parse(window.location.search.split('?')[1])
 
       queryStringRaw = Object.assign({}, queryStringRaw, {
@@ -71,12 +124,6 @@ export default {
       const stringifyUrl = QueryString.stringify(queryStringRaw)
 
       window.location = `/?${stringifyUrl}`
-    },
-
-    signup () {
-      const query = this.$route.query
-
-      this.$router.push({ path: '/auth/signup', query: query })
     }
   }
 }

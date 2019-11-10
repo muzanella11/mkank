@@ -30,7 +30,7 @@
             sm6
           >
             <v-text-field
-              v-model="entry.email"
+              v-model="entry.password"
               outlined
               label="Password"
               type="password"
@@ -59,7 +59,7 @@
               color="primary"
               class="action__button"
               width="100%"
-              @click="btnAction"
+              @click="btnAction('signin')"
             >
               Login
             </v-btn>
@@ -74,7 +74,7 @@
       <span class="footer-question">Don't have an account?</span>&nbsp;
       <a
         href="javascript:;"
-        @click="signup"
+        @click="btnAction('signup')"
       >Register</a>
     </div>
   </enem-cards>

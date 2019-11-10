@@ -9,13 +9,21 @@ export const EXCEPT_PAGE = [
 ]
 
 export default function ({ route, redirect }) {
-  const role = Storage.getStorage('role')
+  const role = Storage.getStorage('role') || false
+  const token = Storage.getStorage('MKANK_TOKEN') || false
 
   if (EXCEPT_PAGE.indexOf(route.name) !== -1) {
+    if (token) {
+      redirect('/')
+    }
+
     return
   }
 
-  if (!role) {
+  console.info('srole : ', role)
+  console.info('srole : ', token)
+
+  if (!token && !role) {
     redirect('/startup')
   }
 }

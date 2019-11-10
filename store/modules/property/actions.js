@@ -1,20 +1,14 @@
 import * as TYPES from './types'
-import Axios from 'axios'
+import Api from '~/api'
 
 export default {
   [TYPES.FETCH_PROPERTY_DETAIL] ({ commit, state }, payload) {
-    const url = `/detail/${payload}`
-
     return new Promise((resolve, reject) => {
-      Axios({
-        method: 'get',
-        url: `//admin.mkankapp.com/api${url}`
-      })
+      Api.property.detail(payload)
         .then(response => {
           commit(TYPES.SET_STATE, { accessor: 'propertyDetail', value: response.data.message })
           resolve(response)
-        })
-        .catch(error => {
+        }, error => {
           commit(TYPES.SET_STATE, { accessor: 'propertyDetail', value: {} })
           reject(error)
         })

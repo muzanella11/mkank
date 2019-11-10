@@ -16,5 +16,11 @@ export default () => ({
   messagesConnection: {
     offline: 'Anda berada pada mode offline',
     online: 'Anda telah terhubung kembali'
+  },
+  snackbarOptions: {
+    text: 'Hello :)',
+    color: 'pink',
+    buttonColor: 'white',
+    isShown: false
   }
 })
