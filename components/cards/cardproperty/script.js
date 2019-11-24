@@ -2,6 +2,10 @@ import EnemCards from './../carddefault/template.vue'
 
 export default {
   props: {
+    role: {
+      type: String,
+      default: ''
+    },
     agentDetail: {
       type: Boolean,
       default: false
@@ -59,6 +63,14 @@ export default {
 
     propertyCarpark () {
       return this.entries.carpark ? this.entries.carpark : ''
+    },
+
+    propertyViews () {
+      return this.entries.views ? this.entries.views : 0
+    },
+
+    propertyListed () {
+      return this.entries.listed ? this.entries.listed : 0
     }
   },
 

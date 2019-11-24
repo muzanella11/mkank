@@ -5,6 +5,7 @@
       class="current-location__wrapper"
     >
       <v-flex
+        v-if="role !== 'seller'"
         xs8
         sm8
         class="wrapper-content input"
@@ -39,6 +40,28 @@
       </v-flex>
 
       <v-flex
+        v-else
+        class="wrapper-content profile"
+      >
+        <v-layout
+          wrap
+          class="wrapper-content__profile"
+        >
+          <div class="avatar">
+            <img
+              src="https://randomuser.me/api/portraits/men/33.jpg"
+              alt="image"
+              class="account-avatar"
+            >
+          </div>
+          <div class="title">
+            Anu gemas
+          </div>
+        </v-layout>
+      </v-flex>
+
+      <v-flex
+        v-if="role !== 'seller'"
         xs4
         sm4
         class="wrapper-content action"

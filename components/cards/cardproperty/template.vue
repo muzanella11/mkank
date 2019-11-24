@@ -64,26 +64,42 @@
           xs3
           sm12
           class="content-right"
+          :class="[role === 'seller' ? 'seller' : '']"
         >
-          <div class="content-right__avatar">
-            <img
-              src="https://randomuser.me/api/portraits/men/33.jpg"
-              alt="image"
-              class="avatar"
-            >
-          </div>
+          <template v-if="role !== 'seller'">
+            <div class="content-right__avatar">
+              <img
+                src="https://randomuser.me/api/portraits/men/33.jpg"
+                alt="image"
+                class="avatar"
+              >
+            </div>
 
-          <div class="content-right__title">
-            Nick long
-          </div>
+            <div class="content-right__title">
+              Nick long
+            </div>
 
-          <div class="content-right__agent">
-            <img
-              src="https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2"
-              alt="agent"
-              class="agent"
-            >
-          </div>
+            <div class="content-right__agent">
+              <img
+                src="https://cdn2.bigcommerce.com/server1500/ac84d/products/1203/images/2686/Adidas_Logo_Stack__93206.1337144792.380.380.jpg?c=2"
+                alt="agent"
+                class="agent"
+              >
+            </div>
+          </template>
+
+          <template v-else>
+            <ul class="content-right__list-status">
+              <li>
+                <v-icon>mdi-eye</v-icon>
+                10 Views
+              </li>
+              <li>
+                <v-icon>mdi-clipboard-list</v-icon>
+                10 Listed
+              </li>
+            </ul>
+          </template>
         </v-flex>
       </v-layout>
     </div>
