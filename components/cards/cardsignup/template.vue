@@ -87,6 +87,20 @@
           </v-flex>
         </v-layout>
 
+        <v-layout wrap>
+          <v-flex
+            xs12
+            sm6
+          >
+            <v-text-field
+              v-model="entry.password"
+              outlined
+              label="Password"
+              type="password"
+            />
+          </v-flex>
+        </v-layout>
+
         <div class="c-separator" />
 
         <v-layout wrap>

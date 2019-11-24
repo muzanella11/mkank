@@ -20,5 +20,18 @@ export default {
           reject(error)
         })
     })
+  },
+
+  [AUTHTYPES.FETCH_SIGNUP] ({ commit }, payload) {
+    return new Promise((resolve, reject) => {
+      Api.auth.signup(payload)
+        .then(response => {
+          console.info('signup : ', response)
+          resolve(response)
+        }, error => {
+          console.info('signup err : ', error)
+          reject(error)
+        })
+    })
   }
 }
