@@ -7,7 +7,6 @@ const NAMESPACE = 'AUTH'
 
 export default {
   signin (data) {
-    console.info('data : ', data)
     let cancel
     const CANCEL_TOKEN = `${NAMESPACE}_SIGNIN`
     const request = resource.post(`${endpoint.auth.signin}`, data, {

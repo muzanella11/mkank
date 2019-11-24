@@ -7,6 +7,7 @@ export const SET_STATE = `${NAMESPACE}_SET_STATE`
 /** ************************ For Actions ****************************************/
 export const FETCH_AUTH_FEATURE = `${NAMESPACE}_FETCH_AUTH_FEATURE`
 export const FETCH_SIGNIN = `${NAMESPACE}_FETCH_SIGNIN`
+export const FETCH_SIGNUP = `${NAMESPACE}_FETCH_SIGNUP`
 /*******************************************************************************/
 
 /** ************************ For Getters ****************************************/

@@ -4,7 +4,6 @@ export const EXCEPT_PAGE = [
   'startup',
   'auth-signin',
   'auth-signup',
-  'logout',
   'pagesNotFound'
 ]
 
@@ -19,9 +18,6 @@ export default function ({ route, redirect }) {
 
     return
   }
-
-  console.info('srole : ', role)
-  console.info('srole : ', token)
 
   if (!token && !role) {
     redirect('/startup')

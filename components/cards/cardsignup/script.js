@@ -1,6 +1,9 @@
 import EnemCards from './../carddefault/template.vue'
 import EnemDatePicker from './../../inputs/Datepicker/template.vue'
 import QueryString from 'querystring'
+import { mapActions, mapMutations } from 'vuex'
+import * as AUTHTPYES from '~/store/modules/auth/types'
+import * as TYPES from '~/store/types'
 
 export default {
   props: {
@@ -45,6 +48,7 @@ export default {
         sellerType: '',
         name: '',
         email: '',
+        password: '',
         birthDate: '',
         phoneNumber: '',
         qatarId: '',
@@ -76,7 +80,23 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      fetchSignup: AUTHTPYES.FETCH_SIGNUP
+    }),
+
+    ...mapMutations({
+      setStateGlobal: TYPES.SET_STATE
+    }),
+
     btnAction () {
+      if (this.wizardActive === 1) {
+        this.submit()
+      } else {
+        this.goToPage()
+      }
+    },
+
+    goToPage () {
       let queryStringRaw = QueryString.parse(window.location.search.split('?')[1])
 
       if (this.wizardActive === 1) {
@@ -100,6 +120,52 @@ export default {
 
     setBirthDate (value) {
       this.entry.birthDate = value
+    },
+
+    mapData () {
+      return {
+        seller_type: this.entry.sellerType,
+        name: this.entry.name,
+        email: this.entry.email,
+        password: this.entry.password,
+        bod: this.entry.birthDate,
+        phone: this.entry.phoneNumber,
+        qatarid: this.entry.qatarId,
+        address: this.entry.address,
+        typeseller: this.entry.sellerType
+      }
+    },
+
+    async submit () {
+      const data = this.mapData()
+
+      try {
+        await this.fetchSignup(data)
+
+        this.setStateGlobal({
+          accessor: 'snackbarOptions',
+          value: {
+            text: 'Success register',
+            color: 'success',
+            buttonColor: 'white',
+            isShown: true
+          }
+        })
+
+        setTimeout(() => {
+          this.goToPage()
+        })
+      } catch (error) {
+        this.setStateGlobal({
+          accessor: 'snackbarOptions',
+          value: {
+            text: error.message,
+            color: 'error',
+            buttonColor: 'white',
+            isShown: true
+          }
+        })
+      }
     }
   }
 }

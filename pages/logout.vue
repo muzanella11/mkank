@@ -21,7 +21,9 @@ export default {
   methods: {
     init () {
       Storage.clearStorage()
-      window.location = '/startup'
+      setTimeout(() => {
+        window.location = '/startup'
+      }, 2000)
     }
   }
 }
