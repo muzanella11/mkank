@@ -61,6 +61,7 @@
       </v-flex>
 
       <v-flex
+        v-if="role !== 'seller'"
         xs4
         sm4
         class="wrapper-content action"
