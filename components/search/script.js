@@ -1,4 +1,6 @@
 import EnemDialogSearch from '~/components/dialog/dialogsearch/template.vue'
+import { mapGetters } from 'vuex'
+import * as AUTHTYPES from '~/store/modules/auth/types'
 
 export default {
   props: {
@@ -43,11 +45,25 @@ export default {
           label: 'Rent',
           value: 'rent'
         }
+      ],
+      searchFilterSeller: [
+        {
+          label: 'For Sale',
+          value: 'sale'
+        },
+        {
+          label: 'For Rent',
+          value: 'rent'
+        }
       ]
     }
   },
 
   computed: {
+    ...mapGetters({
+      role: AUTHTYPES.GET_USER_ROLE
+    }),
+
     searchTypeIcon () {
       return this.isViewMap ? 'mdi-map-marker' : 'mdi-format-list-bulleted'
     }
@@ -85,6 +101,14 @@ export default {
 
   methods: {
     init () {
+      if (this.role === 'seller') {
+        this.searchFilter = this.searchFilterSeller
+        this.filters = this.value
+        this.filters.status = 'sale'
+
+        return
+      }
+
       this.filters = this.value
     },
 

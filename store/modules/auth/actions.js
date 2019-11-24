@@ -11,12 +11,15 @@ export default {
     return new Promise((resolve, reject) => {
       Api.auth.signin(payload)
         .then(response => {
+          const data = response.data.success
           console.info('signin : ', response)
-          Store.set('MKANK_TOKEN', response.data.success.token)
+          Store.set('MKANK_TOKEN', data.token)
+          Store.set('USER_DATA', JSON.stringify({ name: data.name }))
           resolve(response)
         }, error => {
           console.info('signin err : ', error)
           Store.remove('MKANK_TOKEN')
+          Store.remove('USER_DATA')
           reject(error)
         })
     })

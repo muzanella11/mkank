@@ -55,6 +55,28 @@
               }
             }
 
+            &__profile {
+              @include clearfix;
+
+              & .avatar {
+                float: left;
+
+                & .account-avatar {
+                  position: relative;
+                  width: 42px;
+                  height: 42px;
+                  border-radius: 50%;
+                }
+              }
+
+              & .title {
+                float: left;
+                padding-left: 8px;
+                padding-top: 5px;
+                color: white;
+              }
+            }
+
             &.action {
               //
             }

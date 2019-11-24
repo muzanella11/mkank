@@ -12,4 +12,7 @@ export const FETCH_SIGNUP = `${NAMESPACE}_FETCH_SIGNUP`
 
 /** ************************ For Getters ****************************************/
 export const GET_ENTRIES_FEATURE = `${NAMESPACE}_GET_ENTRIES_FEATURE`
+export const GET_TOKEN = `${NAMESPACE}_GET_TOKEN`
+export const GET_USER_DATA = `${NAMESPACE}_GET_USER_DATA`
+export const GET_USER_ROLE = `${NAMESPACE}_GET_USER_ROLE`
 /*******************************************************************************/

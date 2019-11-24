@@ -44,6 +44,16 @@
                       text-transform: none;
                       font-weight: normal;
                     }
+
+                    & .action {
+                      &-center {
+                        position: relative;
+                        left: 0;
+                        right: 0;
+                        margin: auto;
+                        width: 100%;
+                      }
+                    }
                   }
                 }
               }
@@ -61,6 +71,92 @@
               & .action {
                 &-calculator {
                   color: black;
+                }
+              }
+            }
+
+            &.show-trend {
+              padding-bottom: 0;
+
+              & .header {
+                &-content {
+                  & .flex {
+                    padding-right: 8px;
+
+                    &:last-child {
+                      padding-right: 0;
+                    }
+                  }
+
+                  &__action {
+                    font-size: 12px;
+                    padding-top: 8px;
+                    border-top: 1px solid #FFE4C5;
+                    margin-top: 16px;
+
+                    &.active {
+                      border-top: none;
+                    }
+
+                    & .action {
+                      &-center {
+                        color: $color-primary;
+                      }
+                    }
+                  }
+
+                  &__content-toggle {
+                    margin-bottom: 8px;
+                  }
+                }
+              }
+
+              & .action {
+                &-trend {
+                  font-size: 12px;
+                }
+              }
+
+              & .big-text {
+                font-size: 16px;
+
+                &.text {
+                  &-primary {
+                    color: $color-primary;
+                  }
+
+                  &-secondary {
+                    color: $color-secondary;
+                  }
+                }
+              }
+            }
+
+            &.my-listing {
+              & .list-button {
+                margin-top: 16px;
+
+                & .flex {
+                  padding-right: 8px;
+
+                  &:last-child {
+                    padding-right: 0;
+                  }
+                }
+
+                & .action {
+                  &-btn {
+                    width: 100%;
+                    padding: 8px;
+                    height: auto;
+                    text-align: center;
+                    font-weight: normal;
+
+                    &.active {
+                      background-color: $color-primary !important;
+                      color: white;
+                    }
+                  }
                 }
               }
             }
